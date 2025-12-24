@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagflux | Hyper-Financial Infrastructure</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="noise-overlay"></div>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-trail"></div>
+
+    <nav class="navbar gs-reveal">
+      <div class="container nav-wrapper">
+        <div class="logo magnetic">Pagflux<span class="dot">.</span></div>
+        <div class="nav-center desktop-only">
+          <a href="#ecosystem" class="nav-link magnetic-link">Ecossistema</a>
+          <a href="#devs" class="nav-link magnetic-link">API</a>
+          <a href="#pricing" class="nav-link magnetic-link">Pricing</a>
+        </div>
+        <div class="nav-right">
+          <a href="#signup" class="btn-glow magnetic">
+            <span class="btn-content"
+              >Dashboard
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path
+                  d="M1 11L11 1M11 1H3M11 1V9"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero-section">
+        <canvas id="hero-canvas"></canvas>
+
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+
+        <div class="container hero-content relative-z">
+          <div class="pill-badge gs-reveal">
+            <span class="pulse-dot"></span> API v3.0 Stable
+          </div>
+          <h1 class="hero-title gs-reveal">
+            Payments for the <br />
+            <span class="gradient-text">Next Generation.</span>
+          </h1>
+          <p class="hero-sub gs-reveal">
+            Abstraia a complexidade financeira. Integre pagamentos globais,
+            split de receitas e anti-fraude com uma única linha de código.
+          </p>
+          <div class="hero-actions gs-reveal">
+            <a href="#start" class="btn-primary magnetic">Começar Agora</a>
+            <div class="cmd-box">
+              <span class="cmd-prompt">$</span> npm install @pagflux/sdk
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-mouse">
+          <div class="wheel"></div>
+        </div>
+      </section>
+
+      <section class="partners-section">
+        <div class="marquee-fade-left"></div>
+        <div class="marquee-fade-right"></div>
+        <div class="marquee-track">
+          <div class="marquee-content">
+            <span>UBER</span><span>SPOTIFY</span><span>VTEX</span
+            ><span>NUBANK</span><span>INTER</span><span>SHOPIFY</span
+            ><span>STRIPE</span><span>REVOLUT</span> <span>UBER</span
+            ><span>SPOTIFY</span><span>VTEX</span><span>NUBANK</span
+            ><span>INTER</span><span>SHOPIFY</span><span>STRIPE</span
+            ><span>REVOLUT</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="impact-section">
+        <div class="container">
+          <div class="impact-grid">
+            <div class="impact-text gs-reveal">
+              <h2 class="section-title">O velho jeito <br />está quebrado.</h2>
+              <p>
+                Gateways legados custam caro, convertem mal e quebram na Black
+                Friday. Mude para a infraestrutura líquida.
+              </p>
+            </div>
+            <div class="stat-card magnetic-border gs-card">
+              <div class="stat-number">
+                <span class="counter" data-target="99.99">0</span>%
+              </div>
+              <div class="stat-label">Uptime Garantido</div>
+            </div>
+            <div class="stat-card magnetic-border gs-card">
+              <div class="stat-number">
+                <span class="counter" data-target="120">0</span>ms
+              </div>
+              <div class="stat-label">Latência Global</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ecosystem" class="features-section">
+        <div class="container">
+          <div class="section-header center gs-reveal">
+            <h2>Arquitetura Modular</h2>
+            <p>Construa seu banco, marketplace ou e-commerce.</p>
+          </div>
+
+          <div class="bento-grid">
+            <div class="bento-card span-2 spotlight-card gs-card">
+              <div class="card-inner">
+                <div class="icon-glow">⚡</div>
+                <h3>Turbo Checkout</h3>
+                <p>
+                  Otimizado via WASM para performance nativa. Aumente a
+                  conversão mobile em 15% instantaneamente.
+                </p>
+              </div>
+            </div>
+            <div class="bento-card spotlight-card gs-card">
+              <div class="card-inner">
+                <div class="icon-glow">🛡️</div>
+                <h3>Shield AI</h3>
+                <p>Rede neural que bloqueia fraudes em tempo real.</p>
+              </div>
+            </div>
+            <div class="bento-card spotlight-card gs-card">
+              <div class="card-inner">
+                <div class="icon-glow">💳</div>
+                <h3>Smart Routing</h3>
+                <p>Tenta múltiplas adquirentes para aprovar a venda.</p>
+              </div>
+            </div>
+            <div class="bento-card span-3 spotlight-card gs-card">
+              <div class="card-inner row-layout">
+                <div class="text-area">
+                  <h3>Dashboard Financeiro</h3>
+                  <p>
+                    Reconciliação automática e visão de fluxo de caixa em tempo
+                    real.
+                  </p>
+                </div>
+                <div class="visual-area">
+                  <div class="mini-chart">
+                    <div class="bar" style="height: 40%"></div>
+                    <div class="bar" style="height: 70%"></div>
+                    <div class="bar" style="height: 50%"></div>
+                    <div class="bar active" style="height: 90%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="steps" class="steps-section">
+        <div class="container">
+          <div class="section-header center gs-reveal">
+            <h2>Integração Fluida</h2>
+          </div>
+          <div class="steps-wrapper">
+            <svg
+              class="connecting-line"
+              width="100%"
+              height="100%"
+              preserveAspectRatio="none"
+            >
+              <path
+                class="line-path"
+                d="M0,50 Q400,100 800,50 T1200,50"
+                fill="none"
+                stroke="#00f3ff"
+                stroke-width="2"
+              />
+            </svg>
+
+            <div class="step-item gs-step">
+              <div class="step-number">01</div>
+              <h3>Crie a conta</h3>
+              <p>Chaves de API instantâneas.</p>
+            </div>
+            <div class="step-item gs-step">
+              <div class="step-number">02</div>
+              <h3>Instale o SDK</h3>
+              <p>3 linhas de código.</p>
+            </div>
+            <div class="step-item gs-step">
+              <div class="step-number">03</div>
+              <h3>Scale</h3>
+              <p>Receba pagamentos globais.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="devs" class="dev-section">
+        <canvas id="matrix-canvas"></canvas>
+        <div class="container dev-container relative-z">
+          <div class="dev-content gs-reveal">
+            <h2>Developer First. <br />Always.</h2>
+            <ul class="check-list">
+              <li><span>✓</span> SDKs Tipados (TypeScript)</li>
+              <li><span>✓</span> Webhooks com Replay</li>
+              <li><span>✓</span> Ambiente Sandbox Isolado</li>
+            </ul>
+            <a href="#" class="btn-link">Ler Documentação &rarr;</a>
+          </div>
+          <div class="code-block gs-reveal magnetic-border">
+            <div class="window-controls">
+              <span class="control red"></span
+              ><span class="control yellow"></span
+              ><span class="control green"></span>
+            </div>
+            <pre><code class="language-js"><span class="keyword">import</span> { Pagflux } <span class="keyword">from</span> <span class="string">'@pagflux/sdk'</span>;
+
+<span class="comment">// Process payment</span>
+<span class="keyword">const</span> tx = <span class="keyword">await</span> Pagflux.charge({
+  amount: <span class="number">12990</span>,
+  method: <span class="string">'pix_instant'</span>,
+  split: {
+    recipient: <span class="string">'acc_partner_01'</span>,
+    percentage: <span class="number">10</span>
+  }
+});</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews" class="reviews-section">
+        <div class="container">
+          <h2 class="gs-reveal center-text mb-5">Trusted by CTOs</h2>
+        </div>
+        <div class="reviews-track-wrapper">
+          <div class="reviews-track">
+            <div class="review-card">
+              <p>"A API mais limpa que já usei. Integramos em uma tarde."</p>
+              <strong>CTO @ TechFinance</strong>
+            </div>
+            <div class="review-card">
+              <p>"O suporte técnico fala código, não script."</p>
+              <strong>Lead Dev @ E-Shop</strong>
+            </div>
+            <div class="review-card">
+              <p>"Reduzimos o churn em 15% trocando o checkout."</p>
+              <strong>Founder @ SaaS.io</strong>
+            </div>
+            <div class="review-card">
+              <p>"Dashboard incrível, vejo tudo em tempo real."</p>
+              <strong>CFO @ StartupX</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="pricing-section">
+        <div class="container">
+          <h2 class="center-text gs-reveal">Pricing Transparente</h2>
+          <div class="pricing-grid">
+            <div class="price-card gs-card magnetic-border">
+              <div class="card-inner">
+                <h3>Start</h3>
+                <div class="price">1.99%</div>
+                <p class="fee">+ R$ 0,50 / tx</p>
+                <a href="#" class="btn-secondary full">Criar Conta</a>
+              </div>
+            </div>
+            <div class="price-card featured gs-card magnetic-border">
+              <div class="card-inner">
+                <div class="popular-badge">Growth</div>
+                <h3>Scale</h3>
+                <div class="price">1.49%</div>
+                <p class="fee">+ R$ 0,30 / tx</p>
+                <a href="#" class="btn-primary full">Migrar Agora</a>
+              </div>
+            </div>
+            <div class="price-card gs-card magnetic-border">
+              <div class="card-inner">
+                <h3>Enterprise</h3>
+                <div class="price">Custom</div>
+                <p class="fee">Volume Negociado</p>
+                <a href="#" class="btn-secondary full">Falar com Sales</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="faq-section">
+        <div class="container faq-container">
+          <div class="faq-left gs-reveal">
+            <h2>FAQ</h2>
+            <p>Perguntas frequentes.</p>
+          </div>
+          <div class="faq-right gs-reveal">
+            <div class="faq-item">
+              <h4>Quanto tempo para receber?</h4>
+              <p>D+1 para cartão e Instantâneo para PIX.</p>
+            </div>
+            <div class="faq-item">
+              <h4>Tem taxa de adesão?</h4>
+              <p>Zero. Você só paga quando vende.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="final-cta container gs-reveal">
+          <h2>Ready to build the future?</h2>
+          <a href="#signup" class="btn-primary large magnetic"
+            >Criar Conta Gratuita</a
+          >
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container footer-grid">
+          <div class="footer-brand">
+            <h3>Pagflux.</h3>
+            <p>© 2025 Pagflux Inc.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Produto</h4>
+            <a href="#">Checkout</a>
+            <a href="#">Billing</a>
+            <a href="#">Connect</a>
+          </div>
+          <div class="footer-col">
+            <h4>Empresa</h4>
+            <a href="#">Sobre</a>
+            <a href="#">Carreiras</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="#">Termos</a>
+            <a href="#">Privacidade</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
