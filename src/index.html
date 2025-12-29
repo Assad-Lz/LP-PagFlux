@@ -57,7 +57,7 @@
           <div class="pill-badge gs-reveal">
             <span class="pulse-dot"></span> API v3.0 Stable
           </div>
-          <h1 class="hero-title gs-reveal">
+          <h1 class="hero-title gs-reveal text-reveal">
             Payments for the <br />
             <span class="gradient-text">Next Generation.</span>
           </h1>
@@ -72,10 +72,6 @@
             </div>
           </div>
         </div>
-
-        <div class="scroll-mouse">
-          <div class="wheel"></div>
-        </div>
       </section>
 
       <section class="partners-section">
@@ -83,12 +79,22 @@
         <div class="marquee-fade-right"></div>
         <div class="marquee-track">
           <div class="marquee-content">
-            <span>UBER</span><span>SPOTIFY</span><span>VTEX</span
-            ><span>NUBANK</span><span>INTER</span><span>SHOPIFY</span
-            ><span>STRIPE</span><span>REVOLUT</span> <span>UBER</span
-            ><span>SPOTIFY</span><span>VTEX</span><span>NUBANK</span
-            ><span>INTER</span><span>SHOPIFY</span><span>STRIPE</span
-            ><span>REVOLUT</span>
+            <span class="partner-logo-item">UBER</span
+            ><span class="partner-logo-item">SPOTIFY</span
+            ><span class="partner-logo-item">VTEX</span
+            ><span class="partner-logo-item">NUBANK</span
+            ><span class="partner-logo-item">INTER</span
+            ><span class="partner-logo-item">SHOPIFY</span
+            ><span class="partner-logo-item">STRIPE</span
+            ><span class="partner-logo-item">REVOLUT</span>
+            <span class="partner-logo-item">UBER</span
+            ><span class="partner-logo-item">SPOTIFY</span
+            ><span class="partner-logo-item">VTEX</span
+            ><span class="partner-logo-item">NUBANK</span
+            ><span class="partner-logo-item">INTER</span
+            ><span class="partner-logo-item">SHOPIFY</span
+            ><span class="partner-logo-item">STRIPE</span
+            ><span class="partner-logo-item">REVOLUT</span>
           </div>
         </div>
       </section>
@@ -103,13 +109,15 @@
                 Friday. Mude para a infraestrutura líquida.
               </p>
             </div>
-            <div class="stat-card magnetic-border gs-card">
+            <div class="stat-card magnetic-border gs-card coin-container">
+              <div class="floating-coin"></div>
               <div class="stat-number">
                 <span class="counter" data-target="99.99">0</span>%
               </div>
               <div class="stat-label">Uptime Garantido</div>
             </div>
-            <div class="stat-card magnetic-border gs-card">
+            <div class="stat-card magnetic-border gs-card chart-container">
+              <canvas id="animated-chart" width="200" height="100"></canvas>
               <div class="stat-number">
                 <span class="counter" data-target="120">0</span>ms
               </div>
@@ -122,12 +130,16 @@
       <section id="ecosystem" class="features-section">
         <div class="container">
           <div class="section-header center gs-reveal">
-            <h2>Arquitetura Modular</h2>
+            <h2 class="glitch-text" data-text="Arquitetura Modular">
+              Arquitetura Modular
+            </h2>
             <p>Construa seu banco, marketplace ou e-commerce.</p>
           </div>
 
           <div class="bento-grid">
-            <div class="bento-card span-2 spotlight-card gs-card">
+            <div
+              class="bento-card span-2 spotlight-card gs-card parallax-element layer-1"
+            >
               <div class="card-inner">
                 <div class="icon-glow">⚡</div>
                 <h3>Turbo Checkout</h3>
@@ -135,6 +147,22 @@
                   Otimizado via WASM para performance nativa. Aumente a
                   conversão mobile em 15% instantaneamente.
                 </p>
+                <svg
+                  class="growth-chart"
+                  viewBox="0 0 200 80"
+                  width="200"
+                  height="80"
+                >
+                  <polyline
+                    class="trend-line"
+                    points="10,70 30,55 50,60 70,40 90,50 110,30 130,35 150,15 170,20 190,5"
+                    fill="none"
+                    stroke="#00f0ff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
               </div>
             </div>
             <div class="bento-card spotlight-card gs-card">
@@ -177,7 +205,9 @@
       <section id="steps" class="steps-section">
         <div class="container">
           <div class="section-header center gs-reveal">
-            <h2>Integração Fluida</h2>
+            <h2 class="glitch-text" data-text="Integração Fluida">
+              Integração Fluida
+            </h2>
           </div>
           <div class="steps-wrapper">
             <svg
@@ -247,27 +277,453 @@
         </div>
       </section>
 
+      <section class="security-section">
+        <div class="container">
+          <div class="section-header center gs-reveal">
+            <h2>Segurança de Nível Enterprise</h2>
+            <p>
+              Criptografia de ponta a ponta + conformidade com PCI DSS 3.2.1
+            </p>
+          </div>
+
+          <div class="security-grid">
+            <div class="security-card gs-reveal">
+              <div class="floating-element">🔐</div>
+              <h3>Encriptação E2E</h3>
+              <p>Todos os dados em trânsito com TLS 1.3</p>
+            </div>
+            <div class="security-card gs-reveal">
+              <div class="floating-element">✓</div>
+              <h3>PCI DSS 3.2.1</h3>
+              <p>Certificação de segurança de dados</p>
+            </div>
+            <div class="security-card gs-reveal">
+              <div class="floating-element">🛡️</div>
+              <h3>Zero-Knowledge</h3>
+              <p>Nem nós vemos seus dados sensíveis</p>
+            </div>
+            <div class="security-card gs-reveal">
+              <div class="floating-element">⚡</div>
+              <h3>Redundância</h3>
+              <p>99.99% SLA com backup automático</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="global-reach-section">
+        <div class="container">
+          <div class="section-header center gs-reveal">
+            <h2>Alcance Global</h2>
+            <p>
+              Suportamos <strong>150+ países</strong> com transações
+              instantâneas
+            </p>
+          </div>
+
+          <!-- Carroussel de Bandeiras -->
+          <div class="flags-carousel-container">
+            <div class="flags-carousel-track">
+              <div class="flag-item">
+                <div class="flag-emoji">🇧🇷</div>
+                <span class="flag-name">Brasil</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇺🇸</div>
+                <span class="flag-name">EUA</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇯🇵</div>
+                <span class="flag-name">Japão</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇩🇪</div>
+                <span class="flag-name">Alemanha</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇬🇧</div>
+                <span class="flag-name">UK</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇫🇷</div>
+                <span class="flag-name">França</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇮🇳</div>
+                <span class="flag-name">Índia</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇨🇳</div>
+                <span class="flag-name">China</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇨🇦</div>
+                <span class="flag-name">Canadá</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇦🇺</div>
+                <span class="flag-name">Austrália</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇲🇽</div>
+                <span class="flag-name">México</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇸🇬</div>
+                <span class="flag-name">Singapura</span>
+              </div>
+              <!-- Duplicado para efeito contínuo -->
+              <div class="flag-item">
+                <div class="flag-emoji">🇧🇷</div>
+                <span class="flag-name">Brasil</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇺🇸</div>
+                <span class="flag-name">EUA</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇯🇵</div>
+                <span class="flag-name">Japão</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇩🇪</div>
+                <span class="flag-name">Alemanha</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇬🇧</div>
+                <span class="flag-name">UK</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇫🇷</div>
+                <span class="flag-name">França</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇮🇳</div>
+                <span class="flag-name">Índia</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇨🇳</div>
+                <span class="flag-name">China</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇨🇦</div>
+                <span class="flag-name">Canadá</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇦🇺</div>
+                <span class="flag-name">Austrália</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇲🇽</div>
+                <span class="flag-name">México</span>
+              </div>
+              <div class="flag-item">
+                <div class="flag-emoji">🇸🇬</div>
+                <span class="flag-name">Singapura</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <div class="reach-stats">
+            <div class="reach-stat gs-reveal">
+              <div class="reach-number">150+</div>
+              <p class="reach-stat-label">Países cobertos</p>
+            </div>
+            <div class="reach-stat gs-reveal">
+              <div class="reach-number">45</div>
+              <p class="reach-stat-label">Moedas suportadas</p>
+            </div>
+            <div class="reach-stat gs-reveal">
+              <div class="reach-number">24/7</div>
+              <p class="reach-stat-label">Suporte global</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard-preview-section">
+        <div class="container">
+          <div class="section-header center gs-reveal">
+            <h2>Dashboard em Tempo Real</h2>
+            <p>Visualize seus dados financeiros com precisão</p>
+          </div>
+
+          <div class="dashboard-preview gs-reveal">
+            <div class="dashboard-header">
+              <h3>Financial Overview - Dezembro 2025</h3>
+              <div class="dashboard-period">Últimos 30 dias</div>
+            </div>
+
+            <div class="dashboard-content">
+              <div class="dashboard-chart">
+                <h4>Receita por Método</h4>
+                <svg
+                  class="chart-svg"
+                  viewBox="0 0 500 300"
+                  width="500"
+                  height="300"
+                >
+                  <defs>
+                    <linearGradient
+                      id="barGradient1"
+                      x1="0%"
+                      x2="0%"
+                      y1="0%"
+                      y2="100%"
+                    >
+                      <stop
+                        offset="0%"
+                        style="stop-color: #00f0ff; stop-opacity: 0.8"
+                      />
+                      <stop
+                        offset="100%"
+                        style="stop-color: #00f0ff; stop-opacity: 0.2"
+                      />
+                    </linearGradient>
+                    <linearGradient
+                      id="barGradient2"
+                      x1="0%"
+                      x2="0%"
+                      y1="0%"
+                      y2="100%"
+                    >
+                      <stop
+                        offset="0%"
+                        style="stop-color: #ff00ff; stop-opacity: 0.8"
+                      />
+                      <stop
+                        offset="100%"
+                        style="stop-color: #ff00ff; stop-opacity: 0.2"
+                      />
+                    </linearGradient>
+                  </defs>
+                  <!-- Grid -->
+                  <line
+                    x1="40"
+                    y1="250"
+                    x2="480"
+                    y2="250"
+                    stroke="rgba(255,255,255,0.1)"
+                    stroke-width="1"
+                  />
+                  <!-- Barras animadas -->
+                  <rect
+                    class="bar-animate"
+                    x="60"
+                    y="150"
+                    width="40"
+                    height="100"
+                    fill="url(#barGradient1)"
+                    stroke="#00f0ff"
+                    stroke-width="1"
+                  />
+                  <rect
+                    class="bar-animate"
+                    x="120"
+                    y="100"
+                    width="40"
+                    height="150"
+                    fill="url(#barGradient1)"
+                    stroke="#00f0ff"
+                    stroke-width="1"
+                  />
+                  <rect
+                    class="bar-animate"
+                    x="180"
+                    y="120"
+                    width="40"
+                    height="130"
+                    fill="url(#barGradient1)"
+                    stroke="#00f0ff"
+                    stroke-width="1"
+                  />
+                  <rect
+                    class="bar-animate"
+                    x="240"
+                    y="80"
+                    width="40"
+                    height="170"
+                    fill="url(#barGradient2)"
+                    stroke="#ff00ff"
+                    stroke-width="1"
+                  />
+                  <rect
+                    class="bar-animate"
+                    x="300"
+                    y="110"
+                    width="40"
+                    height="140"
+                    fill="url(#barGradient2)"
+                    stroke="#ff00ff"
+                    stroke-width="1"
+                  />
+                  <rect
+                    class="bar-animate"
+                    x="360"
+                    y="60"
+                    width="40"
+                    height="190"
+                    fill="url(#barGradient2)"
+                    stroke="#ff00ff"
+                    stroke-width="1"
+                  />
+                  <!-- Linha de crescimento -->
+                  <polyline
+                    class="growth-line"
+                    points="80,180 140,130 200,145 260,85 320,125 380,50"
+                    fill="none"
+                    stroke="#00f0ff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <div class="dashboard-stats">
+                <div class="stat-box">
+                  <div class="stat-label">Volume Processado</div>
+                  <div class="stat-value">R$ 1.2M</div>
+                  <div class="stat-change positive">↑ 23%</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-label">Transações</div>
+                  <div class="stat-value">3,847</div>
+                  <div class="stat-change positive">↑ 18%</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-label">Taxa de Conversão</div>
+                  <div class="stat-value">4.2%</div>
+                  <div class="stat-change positive">↑ 5%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="reviews" class="reviews-section">
         <div class="container">
-          <h2 class="gs-reveal center-text mb-5">Trusted by CTOs</h2>
+          <h2
+            class="gs-reveal center-text mb-5 glitch-text"
+            data-text="Confiado por CTOs"
+          >
+            Confiado por CTOs
+          </h2>
+          <p
+            class="gs-reveal center-text text-muted"
+            style="margin-bottom: 60px"
+          >
+            Os melhores CTOs do Brasil confiam na Pagflux
+          </p>
         </div>
         <div class="reviews-track-wrapper">
           <div class="reviews-track">
             <div class="review-card">
-              <p>"A API mais limpa que já usei. Integramos em uma tarde."</p>
-              <strong>CTO @ TechFinance</strong>
+              <div
+                class="review-avatar"
+                style="background: linear-gradient(135deg, #00f0ff, #00a8ff)"
+              >
+                JM
+              </div>
+              <p class="review-text">
+                "A API mais limpa que já usei. Integramos em uma tarde."
+              </p>
+              <strong class="review-author">João Mendes</strong>
+              <span class="review-role">CTO @ TechFinance</span>
             </div>
             <div class="review-card">
-              <p>"O suporte técnico fala código, não script."</p>
-              <strong>Lead Dev @ E-Shop</strong>
+              <div
+                class="review-avatar"
+                style="background: linear-gradient(135deg, #ff00ff, #ff0080)"
+              >
+                SC
+              </div>
+              <p class="review-text">
+                "O suporte técnico fala código, não script."
+              </p>
+              <strong class="review-author">Sarah Chen</strong>
+              <span class="review-role">Lead Dev @ E-Shop</span>
             </div>
             <div class="review-card">
-              <p>"Reduzimos o churn em 15% trocando o checkout."</p>
-              <strong>Founder @ SaaS.io</strong>
+              <div
+                class="review-avatar"
+                style="background: linear-gradient(135deg, #ffd700, #ff8c00)"
+              >
+                LP
+              </div>
+              <p class="review-text">
+                "Reduzimos o churn em 15% trocando o checkout."
+              </p>
+              <strong class="review-author">Lucas Pereira</strong>
+              <span class="review-role">Founder @ SaaS.io</span>
             </div>
             <div class="review-card">
-              <p>"Dashboard incrível, vejo tudo em tempo real."</p>
-              <strong>CFO @ StartupX</strong>
+              <div
+                class="review-avatar"
+                style="background: linear-gradient(135deg, #00ff88, #00ddaa)"
+              >
+                RA
+              </div>
+              <p class="review-text">
+                "Dashboard incrível, vejo tudo em tempo real."
+              </p>
+              <strong class="review-author">Ravi Agarwal</strong>
+              <span class="review-role">CFO @ StartupX</span>
+            </div>
+            <!-- Duplicado para efeito contínuo -->
+            <div class="review-card">
+              <div
+                class="review-avatar"
+                style="background: linear-gradient(135deg, #00f0ff, #00a8ff)"
+              >
+                JM
+              </div>
+              <p class="review-text">
+                "A API mais limpa que já usei. Integramos em uma tarde."
+              </p>
+              <strong class="review-author">João Mendes</strong>
+              <span class="review-role">CTO @ TechFinance</span>
+            </div>
+            <div class="review-card">
+              <div
+                class="review-avatar"
+                style="background: linear-gradient(135deg, #ff00ff, #ff0080)"
+              >
+                SC
+              </div>
+              <p class="review-text">
+                "O suporte técnico fala código, não script."
+              </p>
+              <strong class="review-author">Sarah Chen</strong>
+              <span class="review-role">Lead Dev @ E-Shop</span>
+            </div>
+            <div class="review-card">
+              <div
+                class="review-avatar"
+                style="background: linear-gradient(135deg, #ffd700, #ff8c00)"
+              >
+                LP
+              </div>
+              <p class="review-text">
+                "Reduzimos o churn em 15% trocando o checkout."
+              </p>
+              <strong class="review-author">Lucas Pereira</strong>
+              <span class="review-role">Founder @ SaaS.io</span>
+            </div>
+            <div class="review-card">
+              <div
+                class="review-avatar"
+                style="background: linear-gradient(135deg, #00ff88, #00ddaa)"
+              >
+                RA
+              </div>
+              <p class="review-text">
+                "Dashboard incrível, vejo tudo em tempo real."
+              </p>
+              <strong class="review-author">Ravi Agarwal</strong>
+              <span class="review-role">CFO @ StartupX</span>
             </div>
           </div>
         </div>
@@ -335,31 +791,53 @@
       <footer class="footer">
         <div class="container footer-grid">
           <div class="footer-brand">
-            <h3>Pagflux.</h3>
-            <p>© 2025 Pagflux Inc.</p>
+            <h3>Pagflux<span class="dot">.</span></h3>
+            <p class="copyright-animated">
+              <span class="year">2025</span> © Pagflux. Todos os direitos
+              reservados. |
+              <span class="promise">Pagamentos para a Próxima Geração</span>
+            </p>
           </div>
           <div class="footer-col">
             <h4>Produto</h4>
-            <a href="#">Checkout</a>
-            <a href="#">Billing</a>
-            <a href="#">Connect</a>
+            <a href="#" class="footer-link-hover">Checkout</a>
+            <a href="#" class="footer-link-hover">Billing</a>
+            <a href="#" class="footer-link-hover">Connect</a>
           </div>
           <div class="footer-col">
             <h4>Empresa</h4>
-            <a href="#">Sobre</a>
-            <a href="#">Carreiras</a>
+            <a href="#" class="footer-link-hover">Sobre</a>
+            <a href="#" class="footer-link-hover">Carreiras</a>
           </div>
           <div class="footer-col">
             <h4>Legal</h4>
-            <a href="#">Termos</a>
-            <a href="#">Privacidade</a>
+            <a href="#" class="footer-link-hover">Termos</a>
+            <a href="#" class="footer-link-hover">Privacidade</a>
           </div>
         </div>
       </footer>
     </main>
 
+    <!-- GSAP Core - Carrega primeiro -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/DrawSVGPlugin.min.js"></script>
+
+    <!-- Main Script - Depois do GSAP -->
     <script src="script.js"></script>
+
+    <!-- Fallback & Debug -->
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        if (typeof gsap === 'undefined') {
+          console.warn('⚠️ GSAP não carregou! Recarregando...');
+          setTimeout(() => location.reload(), 500);
+        } else {
+          console.log('✅ GSAP + Plugins carregados!');
+          console.log('GSAP v' + gsap.version);
+        }
+      });
+    </script>
   </body>
 </html>
