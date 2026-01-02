@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pagflux | Hyper-Financial Infrastructure</title>
+    <title>Pagflux | Rapidez & Segurança</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
       rel="stylesheet"
     />
 
@@ -16,31 +16,15 @@
   </head>
   <body>
     <div class="noise-overlay"></div>
-
     <div class="cursor-dot"></div>
     <div class="cursor-trail"></div>
 
     <nav class="navbar gs-reveal">
       <div class="container nav-wrapper">
         <div class="logo magnetic">Pagflux<span class="dot">.</span></div>
-        <div class="nav-center desktop-only">
-          <a href="#ecosystem" class="nav-link magnetic-link">Ecossistema</a>
-          <a href="#devs" class="nav-link magnetic-link">API</a>
-          <a href="#pricing" class="nav-link magnetic-link">Pricing</a>
-        </div>
         <div class="nav-right">
           <a href="#signup" class="btn-glow magnetic">
-            <span class="btn-content"
-              >Dashboard
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                <path
-                  d="M1 11L11 1M11 1H3M11 1V9"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                /></svg
-            ></span>
+            <span class="btn-content">Quero vender mais</span>
           </a>
         </div>
       </div>
@@ -49,167 +33,159 @@
     <main>
       <section class="hero-section">
         <canvas id="hero-canvas"></canvas>
-
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-
         <div class="container hero-content relative-z">
           <div class="pill-badge gs-reveal">
-            <span class="pulse-dot"></span> API v3.0 Stable
+            <span class="pulse-dot"></span> Venda Sem Limites
           </div>
-          <h1 class="hero-title gs-reveal text-reveal">
-            Payments for the <br />
-            <span class="gradient-text">Next Generation.</span>
+          <h1 class="hero-title gs-reveal">
+            Rapidez & Segurança <br />
+            <span class="gradient-text">para vender sem limites.</span>
           </h1>
-          <p class="hero-sub gs-reveal">
-            Abstraia a complexidade financeira. Integre pagamentos globais,
-            split de receitas e anti-fraude com uma única linha de código.
-          </p>
-          <div class="hero-actions gs-reveal">
-            <a href="#start" class="btn-primary magnetic">Começar Agora</a>
-            <div class="cmd-box">
-              <span class="cmd-prompt">$</span> npm install @pagflux/sdk
+
+          <div class="hero-sub-box gs-reveal">
+            <p class="hero-sub">
+              Pare de perder vendas e destrave o fluxo do seu negócio com o
+              PAGFLUX.
+            </p>
+            <div class="impact-alert">
+              <strong
+                >Não adianta vender 1 milhão e ter apenas 20% aprovados!</strong
+              ><br />
+              O que faz o seu negócio decolar é a taxa de vendas APROVADAS
+              dentro da operação.
             </div>
           </div>
-        </div>
-      </section>
 
-      <section class="partners-section">
-        <div class="marquee-fade-left"></div>
-        <div class="marquee-fade-right"></div>
-        <div class="marquee-track">
-          <div class="marquee-content">
-            <span class="partner-logo-item">UBER</span
-            ><span class="partner-logo-item">SPOTIFY</span
-            ><span class="partner-logo-item">VTEX</span
-            ><span class="partner-logo-item">NUBANK</span
-            ><span class="partner-logo-item">INTER</span
-            ><span class="partner-logo-item">SHOPIFY</span
-            ><span class="partner-logo-item">STRIPE</span
-            ><span class="partner-logo-item">REVOLUT</span>
-            <span class="partner-logo-item">UBER</span
-            ><span class="partner-logo-item">SPOTIFY</span
-            ><span class="partner-logo-item">VTEX</span
-            ><span class="partner-logo-item">NUBANK</span
-            ><span class="partner-logo-item">INTER</span
-            ><span class="partner-logo-item">SHOPIFY</span
-            ><span class="partner-logo-item">STRIPE</span
-            ><span class="partner-logo-item">REVOLUT</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="impact-section">
-        <div class="container">
-          <div class="impact-grid">
-            <div class="impact-text gs-reveal">
-              <h2 class="section-title">O velho jeito <br />está quebrado.</h2>
-              <p>
-                Gateways legados custam caro, convertem mal e quebram na Black
-                Friday. Mude para a infraestrutura líquida.
-              </p>
-            </div>
-            <div class="stat-card magnetic-border gs-card coin-container">
-              <div class="floating-coin"></div>
-              <div class="stat-number">
-                <span class="counter" data-target="99.99">0</span>%
-              </div>
-              <div class="stat-label">Uptime Garantido</div>
-            </div>
-            <div class="stat-card magnetic-border gs-card chart-container">
-              <canvas id="animated-chart" width="200" height="100"></canvas>
-              <div class="stat-number">
-                <span class="counter" data-target="120">0</span>ms
-              </div>
-              <div class="stat-label">Latência Global</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="ecosystem" class="features-section">
-        <div class="container">
-          <div class="section-header center gs-reveal">
-            <h2 class="glitch-text" data-text="Arquitetura Modular">
-              Arquitetura Modular
-            </h2>
-            <p>Construa seu banco, marketplace ou e-commerce.</p>
-          </div>
-
-          <div class="bento-grid">
-            <div
-              class="bento-card span-2 spotlight-card gs-card parallax-element layer-1"
+          <div class="hero-actions gs-reveal mt-4">
+            <a href="#signup" class="btn-primary large magnetic"
+              >Quero vender mais</a
             >
-              <div class="card-inner">
-                <div class="icon-glow">⚡</div>
-                <h3>Turbo Checkout</h3>
-                <p>
-                  Otimizado via WASM para performance nativa. Aumente a
-                  conversão mobile em 15% instantaneamente.
-                </p>
-                <svg
-                  class="growth-chart"
-                  viewBox="0 0 200 80"
-                  width="200"
-                  height="80"
-                >
-                  <polyline
-                    class="trend-line"
-                    points="10,70 30,55 50,60 70,40 90,50 110,30 130,35 150,15 170,20 190,5"
-                    fill="none"
-                    stroke="#00f0ff"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="bento-card spotlight-card gs-card">
-              <div class="card-inner">
-                <div class="icon-glow">🛡️</div>
-                <h3>Shield AI</h3>
-                <p>Rede neural que bloqueia fraudes em tempo real.</p>
-              </div>
-            </div>
-            <div class="bento-card spotlight-card gs-card">
-              <div class="card-inner">
-                <div class="icon-glow">💳</div>
-                <h3>Smart Routing</h3>
-                <p>Tenta múltiplas adquirentes para aprovar a venda.</p>
-              </div>
-            </div>
-            <div class="bento-card span-3 spotlight-card gs-card">
-              <div class="card-inner row-layout">
-                <div class="text-area">
-                  <h3>Dashboard Financeiro</h3>
-                  <p>
-                    Reconciliação automática e visão de fluxo de caixa em tempo
-                    real.
-                  </p>
-                </div>
-                <div class="visual-area">
-                  <div class="mini-chart">
-                    <div class="bar" style="height: 40%"></div>
-                    <div class="bar" style="height: 70%"></div>
-                    <div class="bar" style="height: 50%"></div>
-                    <div class="bar active" style="height: 90%"></div>
-                  </div>
+            <a
+              href="https://wa.me/seunumero"
+              class="btn-secondary large magnetic"
+              >Falar com especialista</a
+            >
+          </div>
+        </div>
+
+        <div class="scroll-indicator">
+          <div class="mouse-wheel"></div>
+        </div>
+      </section>
+
+      <section class="features-list-section">
+        <div class="container">
+          <div class="section-header center gs-reveal">
+            <h2 class="section-title text-gradient-silver">
+              Chega de dor de cabeça!
+            </h2>
+            <p class="subtitle-hero">
+              Você encontrou a ferramenta daqueles que querem decolar nas vendas
+              online sem depender da maré de sorte!
+            </p>
+          </div>
+
+          <div class="timeline-wrapper">
+            <div class="timeline-line"></div>
+            <div class="scroll-features-list">
+              <div class="feature-item gs-feature-item magnetic-border">
+                <div class="f-icon">🚀</div>
+                <div class="f-content">
+                  <h3>96% de aprovação</h3>
+                  <p>Das compras no crédito processadas.</p>
                 </div>
               </div>
+              <div class="feature-item gs-feature-item magnetic-border">
+                <div class="f-icon">⚡</div>
+                <div class="f-content">
+                  <h3>Saque Pix Instantâneo</h3>
+                  <p>Liquidez imediata para seu fluxo de caixa.</p>
+                </div>
+              </div>
+              <div class="feature-item gs-feature-item magnetic-border">
+                <div class="f-icon">🏦</div>
+                <div class="f-content">
+                  <h3>D1 para cartão</h3>
+                  <p>Análise compliance acelerada.</p>
+                </div>
+              </div>
+              <div class="feature-item gs-feature-item magnetic-border">
+                <div class="f-icon">🔒</div>
+                <div class="f-content">
+                  <h3>Proteção Total</h3>
+                  <p>Segurança de dados e movimentações.</p>
+                </div>
+              </div>
+              <div class="feature-item gs-feature-item magnetic-border">
+                <div class="f-icon">🛡️</div>
+                <div class="f-content">
+                  <h3>3DS Antifraude</h3>
+                  <p>Camadas extras de segurança inteligente.</p>
+                </div>
+              </div>
+              <div class="feature-item gs-feature-item magnetic-border">
+                <div class="f-icon">📊</div>
+                <div class="f-content">
+                  <h3>Transparência</h3>
+                  <p>Fluxoboard financeiro intuitivo.</p>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <div class="hero-actions justify-center mt-5 gs-reveal">
+            <a href="#signup" class="btn-primary magnetic">Quero vender mais</a>
+            <a href="https://wa.me/seunumero" class="btn-secondary magnetic"
+              >Falar com especialista</a
+            >
           </div>
         </div>
       </section>
 
-      <section id="steps" class="steps-section">
+      <section class="dashboard-preview-section">
         <div class="container">
           <div class="section-header center gs-reveal">
-            <h2 class="glitch-text" data-text="Integração Fluida">
-              Integração Fluida
+            <h2 class="glitch-text" data-text="NOSSO FLUXOBOARD">
+              NOSSO FLUXOBOARD
             </h2>
+            <p class="subtitle-caps">
+              COMPLETO, SIMPLES E INTUITIVO | ACESSO PELO COMPUTADOR OU CELULAR
+            </p>
           </div>
-          <div class="steps-wrapper">
+
+          <div class="dashboard-frame gs-reveal spotlight-card">
+            <div class="browser-header">
+              <span class="dot red"></span><span class="dot yellow"></span
+              ><span class="dot green"></span>
+              <div class="browser-address">pagflux.com/dashboard</div>
+            </div>
+            <div class="dashboard-inner">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
+                alt="Fluxoboard"
+                class="dash-img"
+              />
+              <div class="reflection"></div>
+            </div>
+          </div>
+
+          <div class="center-text mt-5 gs-reveal">
+            <h3>Deixe a concorrência para trás!</h3>
+            <p class="text-muted" style="max-width: 600px; margin: 20px auto">
+              Conte com um gateway que realmente está preparado para fazer o seu
+              negócio decolar!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="flow-cards-section">
+        <div class="container">
+          <div class="section-header center gs-reveal">
+            <h2>MAIS APROVAÇÃO DE PAGAMENTOS</h2>
+          </div>
+
+          <div class="flow-line-container">
             <svg
               class="connecting-line"
               width="100%"
@@ -218,546 +194,141 @@
             >
               <path
                 class="line-path"
-                d="M0,50 Q400,100 800,50 T1200,50"
+                d="M0,50 Q500,100 1200,50"
                 fill="none"
                 stroke="#00f3ff"
                 stroke-width="2"
               />
             </svg>
+          </div>
 
-            <div class="step-item gs-step">
-              <div class="step-number">01</div>
-              <h3>Crie a conta</h3>
-              <p>Chaves de API instantâneas.</p>
+          <div class="flow-grid">
+            <div class="flow-card gs-card spotlight-card">
+              <div class="card-glow-bg"></div>
+              <div class="card-inner">
+                <div class="stat-big gradient-text">70%</div>
+                <h3>PIX</h3>
+                <div class="progress-bar">
+                  <div class="fill" style="width: 70%"></div>
+                </div>
+              </div>
             </div>
-            <div class="step-item gs-step">
-              <div class="step-number">02</div>
-              <h3>Instale o SDK</h3>
-              <p>3 linhas de código.</p>
-            </div>
-            <div class="step-item gs-step">
-              <div class="step-number">03</div>
-              <h3>Scale</h3>
-              <p>Receba pagamentos globais.</p>
+
+            <div class="flow-card gs-card spotlight-card">
+              <div class="card-glow-bg"></div>
+              <div class="card-inner">
+                <div class="stat-big gradient-text">96%</div>
+                <h3>CARTÃO</h3>
+                <div class="progress-bar">
+                  <div class="fill" style="width: 96%"></div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section id="devs" class="dev-section">
-        <canvas id="matrix-canvas"></canvas>
-        <div class="container dev-container relative-z">
-          <div class="dev-content gs-reveal">
-            <h2>Developer First. <br />Always.</h2>
-            <ul class="check-list">
-              <li><span>✓</span> SDKs Tipados (TypeScript)</li>
-              <li><span>✓</span> Webhooks com Replay</li>
-              <li><span>✓</span> Ambiente Sandbox Isolado</li>
-            </ul>
-            <a href="#" class="btn-link">Ler Documentação &rarr;</a>
-          </div>
-          <div class="code-block gs-reveal magnetic-border">
-            <div class="window-controls">
-              <span class="control red"></span
-              ><span class="control yellow"></span
-              ><span class="control green"></span>
-            </div>
-            <pre><code class="language-js"><span class="keyword">import</span> { Pagflux } <span class="keyword">from</span> <span class="string">'@pagflux/sdk'</span>;
-
-<span class="comment">// Process payment</span>
-<span class="keyword">const</span> tx = <span class="keyword">await</span> Pagflux.charge({
-  amount: <span class="number">12990</span>,
-  method: <span class="string">'pix_instant'</span>,
-  split: {
-    recipient: <span class="string">'acc_partner_01'</span>,
-    percentage: <span class="number">10</span>
-  }
-});</code></pre>
-          </div>
-        </div>
-      </section>
-
-      <section class="security-section">
-        <div class="container">
-          <div class="section-header center gs-reveal">
-            <h2>Segurança de Nível Enterprise</h2>
-            <p>
-              Criptografia de ponta a ponta + conformidade com PCI DSS 3.2.1
+          <div class="instant-gains-text center gs-reveal magnetic-border">
+            <h3 class="text-cyan">GANHOS E SAQUES INSTANTÂNEOS</h3>
+            <p>Com o PagFlux o dinheiro das suas vendas não fica travado!</p>
+            <p class="text-sm">
+              Faça saques imediatos das compras no pix e negocie a antecipação
+              de altos volumes ainda no D1 para compras no crédito! Saque em
+              cripto e movimentações para o destino que você quiser!
             </p>
-          </div>
-
-          <div class="security-grid">
-            <div class="security-card gs-reveal">
-              <div class="floating-element">🔐</div>
-              <h3>Encriptação E2E</h3>
-              <p>Todos os dados em trânsito com TLS 1.3</p>
-            </div>
-            <div class="security-card gs-reveal">
-              <div class="floating-element">✓</div>
-              <h3>PCI DSS 3.2.1</h3>
-              <p>Certificação de segurança de dados</p>
-            </div>
-            <div class="security-card gs-reveal">
-              <div class="floating-element">🛡️</div>
-              <h3>Zero-Knowledge</h3>
-              <p>Nem nós vemos seus dados sensíveis</p>
-            </div>
-            <div class="security-card gs-reveal">
-              <div class="floating-element">⚡</div>
-              <h3>Redundância</h3>
-              <p>99.99% SLA com backup automático</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="global-reach-section">
-        <div class="container">
-          <div class="section-header center gs-reveal">
-            <h2>Alcance Global</h2>
-            <p>
-              Suportamos <strong>150+ países</strong> com transações
-              instantâneas
-            </p>
-          </div>
-
-          <!-- Carroussel de Bandeiras -->
-          <div class="flags-carousel-container">
-            <div class="flags-carousel-track">
-              <div class="flag-item">
-                <div class="flag-emoji">🇧🇷</div>
-                <span class="flag-name">Brasil</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇺🇸</div>
-                <span class="flag-name">EUA</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇯🇵</div>
-                <span class="flag-name">Japão</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇩🇪</div>
-                <span class="flag-name">Alemanha</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇬🇧</div>
-                <span class="flag-name">UK</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇫🇷</div>
-                <span class="flag-name">França</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇮🇳</div>
-                <span class="flag-name">Índia</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇨🇳</div>
-                <span class="flag-name">China</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇨🇦</div>
-                <span class="flag-name">Canadá</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇦🇺</div>
-                <span class="flag-name">Austrália</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇲🇽</div>
-                <span class="flag-name">México</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇸🇬</div>
-                <span class="flag-name">Singapura</span>
-              </div>
-              <!-- Duplicado para efeito contínuo -->
-              <div class="flag-item">
-                <div class="flag-emoji">🇧🇷</div>
-                <span class="flag-name">Brasil</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇺🇸</div>
-                <span class="flag-name">EUA</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇯🇵</div>
-                <span class="flag-name">Japão</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇩🇪</div>
-                <span class="flag-name">Alemanha</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇬🇧</div>
-                <span class="flag-name">UK</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇫🇷</div>
-                <span class="flag-name">França</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇮🇳</div>
-                <span class="flag-name">Índia</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇨🇳</div>
-                <span class="flag-name">China</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇨🇦</div>
-                <span class="flag-name">Canadá</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇦🇺</div>
-                <span class="flag-name">Austrália</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇲🇽</div>
-                <span class="flag-name">México</span>
-              </div>
-              <div class="flag-item">
-                <div class="flag-emoji">🇸🇬</div>
-                <span class="flag-name">Singapura</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Stats -->
-          <div class="reach-stats">
-            <div class="reach-stat gs-reveal">
-              <div class="reach-number">150+</div>
-              <p class="reach-stat-label">Países cobertos</p>
-            </div>
-            <div class="reach-stat gs-reveal">
-              <div class="reach-number">45</div>
-              <p class="reach-stat-label">Moedas suportadas</p>
-            </div>
-            <div class="reach-stat gs-reveal">
-              <div class="reach-number">24/7</div>
-              <p class="reach-stat-label">Suporte global</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="dashboard-preview-section">
-        <div class="container">
-          <div class="section-header center gs-reveal">
-            <h2>Dashboard em Tempo Real</h2>
-            <p>Visualize seus dados financeiros com precisão</p>
-          </div>
-
-          <div class="dashboard-preview gs-reveal">
-            <div class="dashboard-header">
-              <h3>Financial Overview - Dezembro 2025</h3>
-              <div class="dashboard-period">Últimos 30 dias</div>
-            </div>
-
-            <div class="dashboard-content">
-              <div class="dashboard-chart">
-                <h4>Receita por Método</h4>
-                <svg
-                  class="chart-svg"
-                  viewBox="0 0 500 300"
-                  width="500"
-                  height="300"
-                >
-                  <defs>
-                    <linearGradient
-                      id="barGradient1"
-                      x1="0%"
-                      x2="0%"
-                      y1="0%"
-                      y2="100%"
-                    >
-                      <stop
-                        offset="0%"
-                        style="stop-color: #00f0ff; stop-opacity: 0.8"
-                      />
-                      <stop
-                        offset="100%"
-                        style="stop-color: #00f0ff; stop-opacity: 0.2"
-                      />
-                    </linearGradient>
-                    <linearGradient
-                      id="barGradient2"
-                      x1="0%"
-                      x2="0%"
-                      y1="0%"
-                      y2="100%"
-                    >
-                      <stop
-                        offset="0%"
-                        style="stop-color: #ff00ff; stop-opacity: 0.8"
-                      />
-                      <stop
-                        offset="100%"
-                        style="stop-color: #ff00ff; stop-opacity: 0.2"
-                      />
-                    </linearGradient>
-                  </defs>
-                  <!-- Grid -->
-                  <line
-                    x1="40"
-                    y1="250"
-                    x2="480"
-                    y2="250"
-                    stroke="rgba(255,255,255,0.1)"
-                    stroke-width="1"
-                  />
-                  <!-- Barras animadas -->
-                  <rect
-                    class="bar-animate"
-                    x="60"
-                    y="150"
-                    width="40"
-                    height="100"
-                    fill="url(#barGradient1)"
-                    stroke="#00f0ff"
-                    stroke-width="1"
-                  />
-                  <rect
-                    class="bar-animate"
-                    x="120"
-                    y="100"
-                    width="40"
-                    height="150"
-                    fill="url(#barGradient1)"
-                    stroke="#00f0ff"
-                    stroke-width="1"
-                  />
-                  <rect
-                    class="bar-animate"
-                    x="180"
-                    y="120"
-                    width="40"
-                    height="130"
-                    fill="url(#barGradient1)"
-                    stroke="#00f0ff"
-                    stroke-width="1"
-                  />
-                  <rect
-                    class="bar-animate"
-                    x="240"
-                    y="80"
-                    width="40"
-                    height="170"
-                    fill="url(#barGradient2)"
-                    stroke="#ff00ff"
-                    stroke-width="1"
-                  />
-                  <rect
-                    class="bar-animate"
-                    x="300"
-                    y="110"
-                    width="40"
-                    height="140"
-                    fill="url(#barGradient2)"
-                    stroke="#ff00ff"
-                    stroke-width="1"
-                  />
-                  <rect
-                    class="bar-animate"
-                    x="360"
-                    y="60"
-                    width="40"
-                    height="190"
-                    fill="url(#barGradient2)"
-                    stroke="#ff00ff"
-                    stroke-width="1"
-                  />
-                  <!-- Linha de crescimento -->
-                  <polyline
-                    class="growth-line"
-                    points="80,180 140,130 200,145 260,85 320,125 380,50"
-                    fill="none"
-                    stroke="#00f0ff"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-
-              <div class="dashboard-stats">
-                <div class="stat-box">
-                  <div class="stat-label">Volume Processado</div>
-                  <div class="stat-value">R$ 1.2M</div>
-                  <div class="stat-change positive">↑ 23%</div>
-                </div>
-                <div class="stat-box">
-                  <div class="stat-label">Transações</div>
-                  <div class="stat-value">3,847</div>
-                  <div class="stat-change positive">↑ 18%</div>
-                </div>
-                <div class="stat-box">
-                  <div class="stat-label">Taxa de Conversão</div>
-                  <div class="stat-value">4.2%</div>
-                  <div class="stat-change positive">↑ 5%</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="reviews" class="reviews-section">
-        <div class="container">
-          <h2
-            class="gs-reveal center-text mb-5 glitch-text"
-            data-text="Confiado por CTOs"
-          >
-            Confiado por CTOs
-          </h2>
-          <p
-            class="gs-reveal center-text text-muted"
-            style="margin-bottom: 60px"
-          >
-            Os melhores CTOs do Brasil confiam na Pagflux
-          </p>
-        </div>
-        <div class="reviews-track-wrapper">
-          <div class="reviews-track">
-            <div class="review-card">
-              <div
-                class="review-avatar"
-                style="background: linear-gradient(135deg, #00f0ff, #00a8ff)"
-              >
-                JM
-              </div>
-              <p class="review-text">
-                "A API mais limpa que já usei. Integramos em uma tarde."
-              </p>
-              <strong class="review-author">João Mendes</strong>
-              <span class="review-role">CTO @ TechFinance</span>
-            </div>
-            <div class="review-card">
-              <div
-                class="review-avatar"
-                style="background: linear-gradient(135deg, #ff00ff, #ff0080)"
-              >
-                SC
-              </div>
-              <p class="review-text">
-                "O suporte técnico fala código, não script."
-              </p>
-              <strong class="review-author">Sarah Chen</strong>
-              <span class="review-role">Lead Dev @ E-Shop</span>
-            </div>
-            <div class="review-card">
-              <div
-                class="review-avatar"
-                style="background: linear-gradient(135deg, #ffd700, #ff8c00)"
-              >
-                LP
-              </div>
-              <p class="review-text">
-                "Reduzimos o churn em 15% trocando o checkout."
-              </p>
-              <strong class="review-author">Lucas Pereira</strong>
-              <span class="review-role">Founder @ SaaS.io</span>
-            </div>
-            <div class="review-card">
-              <div
-                class="review-avatar"
-                style="background: linear-gradient(135deg, #00ff88, #00ddaa)"
-              >
-                RA
-              </div>
-              <p class="review-text">
-                "Dashboard incrível, vejo tudo em tempo real."
-              </p>
-              <strong class="review-author">Ravi Agarwal</strong>
-              <span class="review-role">CFO @ StartupX</span>
-            </div>
-            <!-- Duplicado para efeito contínuo -->
-            <div class="review-card">
-              <div
-                class="review-avatar"
-                style="background: linear-gradient(135deg, #00f0ff, #00a8ff)"
-              >
-                JM
-              </div>
-              <p class="review-text">
-                "A API mais limpa que já usei. Integramos em uma tarde."
-              </p>
-              <strong class="review-author">João Mendes</strong>
-              <span class="review-role">CTO @ TechFinance</span>
-            </div>
-            <div class="review-card">
-              <div
-                class="review-avatar"
-                style="background: linear-gradient(135deg, #ff00ff, #ff0080)"
-              >
-                SC
-              </div>
-              <p class="review-text">
-                "O suporte técnico fala código, não script."
-              </p>
-              <strong class="review-author">Sarah Chen</strong>
-              <span class="review-role">Lead Dev @ E-Shop</span>
-            </div>
-            <div class="review-card">
-              <div
-                class="review-avatar"
-                style="background: linear-gradient(135deg, #ffd700, #ff8c00)"
-              >
-                LP
-              </div>
-              <p class="review-text">
-                "Reduzimos o churn em 15% trocando o checkout."
-              </p>
-              <strong class="review-author">Lucas Pereira</strong>
-              <span class="review-role">Founder @ SaaS.io</span>
-            </div>
-            <div class="review-card">
-              <div
-                class="review-avatar"
-                style="background: linear-gradient(135deg, #00ff88, #00ddaa)"
-              >
-                RA
-              </div>
-              <p class="review-text">
-                "Dashboard incrível, vejo tudo em tempo real."
-              </p>
-              <strong class="review-author">Ravi Agarwal</strong>
-              <span class="review-role">CFO @ StartupX</span>
-            </div>
           </div>
         </div>
       </section>
 
       <section id="pricing" class="pricing-section">
         <div class="container">
-          <h2 class="center-text gs-reveal">Pricing Transparente</h2>
+          <div class="section-header center gs-reveal">
+            <h2>MELHORES TAXAS DO MERCADO</h2>
+            <p class="blink-hint">Passe o cursor para revelar</p>
+          </div>
+
           <div class="pricing-grid">
-            <div class="price-card gs-card magnetic-border">
+            <div class="price-card gs-card magnetic-border reveal-hover">
               <div class="card-inner">
-                <h3>Start</h3>
-                <div class="price">1.99%</div>
-                <p class="fee">+ R$ 0,50 / tx</p>
-                <a href="#" class="btn-secondary full">Criar Conta</a>
+                <div class="icon-box">💠</div>
+                <h3>PIX</h3>
+                <div class="price-hidden">
+                  <span class="blur-text">?.??%</span>
+                  <span class="real-text">0.99%</span>
+                </div>
               </div>
             </div>
-            <div class="price-card featured gs-card magnetic-border">
+
+            <div
+              class="price-card featured gs-card magnetic-border reveal-hover"
+            >
               <div class="card-inner">
-                <div class="popular-badge">Growth</div>
-                <h3>Scale</h3>
-                <div class="price">1.49%</div>
-                <p class="fee">+ R$ 0,30 / tx</p>
-                <a href="#" class="btn-primary full">Migrar Agora</a>
+                <div class="popular-badge">Mais Popular</div>
+                <div class="icon-box">💳</div>
+                <h3>CARTÃO</h3>
+                <div class="price-hidden">
+                  <span class="blur-text">?.??%</span>
+                  <span class="real-text">2.99%</span>
+                </div>
               </div>
             </div>
-            <div class="price-card gs-card magnetic-border">
-              <div class="card-inner">
-                <h3>Enterprise</h3>
-                <div class="price">Custom</div>
-                <p class="fee">Volume Negociado</p>
-                <a href="#" class="btn-secondary full">Falar com Sales</a>
-              </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="support-section">
+        <div class="container">
+          <div class="support-box gs-reveal">
+            <div class="support-content">
+              <h2>SUPORTE RÁPIDO E MENOS DOR DE CABEÇA</h2>
+              <p>
+                Conte com nosso time de especialistas através do WhatsApp.
+                Resposta rápida e solução garantida de qualquer demanda em até
+                24h!
+              </p>
+              <a href="https://wa.me/seunumero" class="btn-whatsapp magnetic">
+                <span>💬</span> FALE AGORA COM NOSSA EQUIPE!
+              </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="app-alert-section">
+        <div class="container">
+          <div class="alert-box blink-border gs-reveal">
+            <div class="alert-icon">📱</div>
+            <div class="alert-content">
+              <h3>
+                <span class="dot-blink">●</span> ATENÇÃO! APLICATIVO SAINDO DO
+                FORNO
+              </h3>
+              <p>
+                Acompanhe suas vendas pelo nosso aplicativo. Seu faturamento ao
+                alcance de suas mãos.
+              </p>
+              <div class="status-tag">APP EM FASE DE FINALIZAÇÃO!</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="liquid-bg"></div>
+        <div class="container relative-z center-text">
+          <h2 class="gs-reveal">
+            PARE DE SOFRER COM OS GATEWAYS <br />QUE VIVEM NO PASSADO!
+          </h2>
+          <h3 class="gradient-text gs-reveal">
+            EXPERIMENTE A EVOLUÇÃO COM O PAGFLUX!
+          </h3>
+          <div class="hero-actions justify-center mt-4 gs-reveal">
+            <a href="#signup" class="btn-primary large magnetic"
+              >Quero vender mais</a
+            >
+            <a
+              href="https://wa.me/seunumero"
+              class="btn-secondary large magnetic"
+              >Tirar dúvida com especialista</a
+            >
           </div>
         </div>
       </section>
@@ -765,26 +336,63 @@
       <section id="faq" class="faq-section">
         <div class="container faq-container">
           <div class="faq-left gs-reveal">
-            <h2>FAQ</h2>
-            <p>Perguntas frequentes.</p>
+            <h2>DÚVIDAS FREQUENTES</h2>
+            <p>Tudo o que você precisa saber.</p>
           </div>
           <div class="faq-right gs-reveal">
             <div class="faq-item">
-              <h4>Quanto tempo para receber?</h4>
-              <p>D+1 para cartão e Instantâneo para PIX.</p>
+              <input type="checkbox" id="faq1" />
+              <label for="faq1" class="faq-label"
+                >Por que o PagFlux é ideal para meu negócio?
+                <span>+</span></label
+              >
+              <div class="faq-content">
+                <p>
+                  Desenvolvido especialmente para empreendedores digitais que
+                  desejam mais segurança, fluidez e aprovações. Possui 3 camadas
+                  antifraude e suporte especializado.
+                </p>
+              </div>
             </div>
             <div class="faq-item">
-              <h4>Tem taxa de adesão?</h4>
-              <p>Zero. Você só paga quando vende.</p>
+              <input type="checkbox" id="faq2" />
+              <label for="faq2" class="faq-label"
+                >Que tipos de operações a plataforma suporta?
+                <span>+</span></label
+              >
+              <div class="faq-content">
+                <p>
+                  Pix e cartão de crédito, com taxas de aprovação de 70% e 96%,
+                  respectivamente.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <input type="checkbox" id="faq3" />
+              <label for="faq3" class="faq-label"
+                >Qual a frequência de saques e taxas? <span>+</span></label
+              >
+              <div class="faq-content">
+                <p>
+                  Saques instantâneos e diários para compras feitas no pix.
+                  Negociação de saques ainda no D1 para compras no crédito.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <input type="checkbox" id="faq4" />
+              <label for="faq4" class="faq-label"
+                >Como é feita a proteção antifraudes? <span>+</span></label
+              >
+              <div class="faq-content">
+                <p>
+                  Com tecnologia avançada, o PagFlux possui 3 camadas de
+                  proteção contra fraudes, evitando bloqueios indevidos e
+                  aumentando sua taxa de aprovação.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="final-cta container gs-reveal">
-          <h2>Ready to build the future?</h2>
-          <a href="#signup" class="btn-primary large magnetic"
-            >Criar Conta Gratuita</a
-          >
         </div>
       </section>
 
@@ -792,52 +400,20 @@
         <div class="container footer-grid">
           <div class="footer-brand">
             <h3>Pagflux<span class="dot">.</span></h3>
-            <p class="copyright-animated">
-              <span class="year">2025</span> © Pagflux. Todos os direitos
-              reservados. |
-              <span class="promise">Pagamentos para a Próxima Geração</span>
+            <p class="copyright">
+              © 2025 Pagflux. Todos os direitos reservados.
             </p>
           </div>
           <div class="footer-col">
-            <h4>Produto</h4>
-            <a href="#" class="footer-link-hover">Checkout</a>
-            <a href="#" class="footer-link-hover">Billing</a>
-            <a href="#" class="footer-link-hover">Connect</a>
-          </div>
-          <div class="footer-col">
-            <h4>Empresa</h4>
-            <a href="#" class="footer-link-hover">Sobre</a>
-            <a href="#" class="footer-link-hover">Carreiras</a>
-          </div>
-          <div class="footer-col">
-            <h4>Legal</h4>
-            <a href="#" class="footer-link-hover">Termos</a>
-            <a href="#" class="footer-link-hover">Privacidade</a>
+            <a href="#" class="footer-link">Termos de Uso</a>
+            <a href="#" class="footer-link">Políticas de Privacidade</a>
           </div>
         </div>
       </footer>
     </main>
 
-    <!-- GSAP Core - Carrega primeiro -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/DrawSVGPlugin.min.js"></script>
-
-    <!-- Main Script - Depois do GSAP -->
     <script src="script.js"></script>
-
-    <!-- Fallback & Debug -->
-    <script>
-      window.addEventListener('DOMContentLoaded', () => {
-        if (typeof gsap === 'undefined') {
-          console.warn('⚠️ GSAP não carregou! Recarregando...');
-          setTimeout(() => location.reload(), 500);
-        } else {
-          console.log('✅ GSAP + Plugins carregados!');
-          console.log('GSAP v' + gsap.version);
-        }
-      });
-    </script>
   </body>
 </html>
