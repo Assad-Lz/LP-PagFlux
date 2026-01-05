@@ -76,11 +76,11 @@ if (waveCanvas) {
   let time = 0;
 
   function drawWaves() {
-    // Gradiente de fundo (horizonte para profundidade) - MAIS SUAVE E MESCLADO
+    // Gradiente de fundo (horizonte para profundidade) - MAIS OPACO E DEFINIDO
     const gradient = waveCtx.createLinearGradient(0, 0, 0, waveHeight);
     gradient.addColorStop(0, 'rgba(2, 2, 4, 0)');
-    gradient.addColorStop(0.4, 'rgba(0, 80, 100, 0.06)');
-    gradient.addColorStop(1, 'rgba(0, 40, 60, 0.15)');
+    gradient.addColorStop(0.4, 'rgba(0, 100, 140, 0.4)');
+    gradient.addColorStop(1, 'rgba(0, 50, 90, 0.6)');
 
     waveCtx.fillStyle = gradient;
     waveCtx.fillRect(0, 0, waveWidth, waveHeight);
