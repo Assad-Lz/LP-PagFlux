@@ -514,7 +514,7 @@ h2 {
 
 @media (max-width: 768px) {
   .hero-section {
-    min-height: auto;
+    min-height: 120vh;
     padding-top: 80px;
     padding-bottom: 40px;
   }

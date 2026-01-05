@@ -76,11 +76,11 @@ if (waveCanvas) {
   let time = 0;
 
   function drawWaves() {
-    // Gradiente de fundo (horizonte para profundidade)
+    // Gradiente de fundo (horizonte para profundidade) - MAIS SUAVE E MESCLADO
     const gradient = waveCtx.createLinearGradient(0, 0, 0, waveHeight);
     gradient.addColorStop(0, 'rgba(2, 2, 4, 0)');
-    gradient.addColorStop(0.3, 'rgba(0, 100, 120, 0.1)');
-    gradient.addColorStop(1, 'rgba(0, 50, 80, 0.3)');
+    gradient.addColorStop(0.4, 'rgba(0, 80, 100, 0.06)');
+    gradient.addColorStop(1, 'rgba(0, 40, 60, 0.15)');
 
     waveCtx.fillStyle = gradient;
     waveCtx.fillRect(0, 0, waveWidth, waveHeight);
@@ -208,11 +208,12 @@ if (canvas) {
   function initHero() {
     width = canvas.width = window.innerWidth;
     height = canvas.height = isMobile
-      ? window.innerHeight * 0.6
+      ? window.innerHeight * 0.9
       : window.innerHeight;
     particles = [];
 
-    const density = isMobile ? 15000 : 9000;
+    // MAIOR DENSIDADE E TAMANHO NO MOBILE PARA MELHOR VISIBILIDADE
+    const density = isMobile ? 8000 : 9000;
     const count = (width * height) / density;
 
     for (let i = 0; i < count; i++) {
@@ -221,7 +222,7 @@ if (canvas) {
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * (isMobile ? 0.8 : 1.5),
         vy: (Math.random() - 0.5) * (isMobile ? 0.8 : 1.5),
-        size: Math.random() * (isMobile ? 1.5 : 2) + 0.5,
+        size: Math.random() * (isMobile ? 2.5 : 2) + (isMobile ? 0.8 : 0.5),
       });
     }
   }
@@ -248,13 +249,13 @@ if (canvas) {
       }
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = '#00F0FF';
+      ctx.fillStyle = isMobile ? 'rgba(0, 240, 255, 0.8)' : '#00F0FF';
       ctx.fill();
     });
 
     const step = isMobile ? 3 : 1;
     const distThreshold = isMobile
-      ? (width / 6) * (height / 6)
+      ? (width / 4) * (height / 4)
       : (width / 9) * (height / 9);
 
     for (let a = 0; a < particles.length; a += step) {
@@ -263,7 +264,9 @@ if (canvas) {
           (particles[a].x - particles[b].x) ** 2 +
           (particles[a].y - particles[b].y) ** 2;
         if (d < distThreshold) {
-          ctx.strokeStyle = 'rgba(0, 240, 255, 0.1)';
+          ctx.strokeStyle = isMobile
+            ? 'rgba(0, 240, 255, 0.25)'
+            : 'rgba(0, 240, 255, 0.1)';
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(particles[a].x, particles[a].y);
