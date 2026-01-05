@@ -4,6 +4,15 @@ gsap.registerPlugin(ScrollTrigger);
 const isMobile = window.innerWidth < 768;
 const isTablet = window.innerWidth < 1024;
 
+// FUNÇÃO PARA GERAR VARIAÇÕES ALEATÓRIAS (HUMANIZE)
+function getRandomTilt(max = 1.5) {
+  return (Math.random() - 0.5) * max;
+}
+
+function getRandomSkew(max = 0.5) {
+  return (Math.random() - 0.5) * max;
+}
+
 // EFEITO DO CURSOR MELHORADO COM RASTRO
 const cursorDot = document.querySelector('.cursor-dot');
 const cursorTrail = document.querySelector('.cursor-trail');
@@ -279,13 +288,16 @@ if (canvas) {
 // 4. SCROLL REVEAL - FEATURE ITEMS
 const featureItems = gsap.utils.toArray('.gs-feature-item');
 featureItems.forEach((item, i) => {
+  const randomX = getRandomTilt(40);
+  const randomDuration = 0.6 + Math.random() * 0.5;
+
   gsap.fromTo(
     item,
-    { opacity: 0, x: -50 },
+    { opacity: 0, x: randomX - 50 },
     {
       opacity: 1,
       x: 0,
-      duration: 0.8,
+      duration: randomDuration,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: item,
@@ -299,13 +311,18 @@ featureItems.forEach((item, i) => {
 // 5. REVEAL GERAL COM STAGGER
 const revealElements = gsap.utils.toArray('.gs-reveal');
 revealElements.forEach((el) => {
+  const randomY = 30 + Math.random() * 20;
+  const randomDuration = 0.8 + Math.random() * 0.4;
+  const randomDelay = Math.random() * 0.1;
+
   gsap.fromTo(
     el,
-    { y: 30, opacity: 0 },
+    { y: randomY, opacity: 0 },
     {
       y: 0,
       opacity: 1,
-      duration: 1,
+      duration: randomDuration,
+      delay: randomDelay,
       ease: 'power2.out',
       scrollTrigger: {
         trigger: el,
@@ -319,14 +336,27 @@ revealElements.forEach((el) => {
 // 6. CARDS COM ANIMAÇÃO AO SCROLL
 const cards = gsap.utils.toArray('.flow-card, .price-card');
 cards.forEach((card) => {
+  // Aplicar tilts aleatórios para variedade visual
+  const tilt = getRandomTilt(1.2);
+  const skew = getRandomSkew(0.3);
+
+  if (!isMobile) {
+    card.style.setProperty('--card-tilt', `${tilt}deg`);
+    card.style.setProperty('--card-skew', `${skew}deg`);
+    card.style.setProperty('--price-tilt', `${tilt * 0.7}deg`);
+  }
+
+  // Animação com variação de timing
+  const delay = Math.random() * 0.3;
   gsap.fromTo(
     card,
-    { opacity: 0, y: 50 },
+    { opacity: 0, y: 50 + getRandomTilt(20) },
     {
       opacity: 1,
       y: 0,
-      duration: 0.8,
+      duration: 0.8 + Math.random() * 0.4,
       ease: 'power3.out',
+      delay: delay,
       scrollTrigger: {
         trigger: card,
         start: 'top 80%',
