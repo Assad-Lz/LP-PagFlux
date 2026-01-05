@@ -2,7 +2,11 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#020204" />
     <title>Pagflux | Rapidez & Segurança</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,13 +24,8 @@
     <div class="cursor-trail"></div>
 
     <nav class="navbar gs-reveal">
-      <div class="container nav-wrapper">
+      <div class="navbar-content">
         <div class="logo magnetic">Pagflux<span class="dot">.</span></div>
-        <div class="nav-right">
-          <a href="#signup" class="btn-glow magnetic">
-            <span class="btn-content">Quero vender mais</span>
-          </a>
-        </div>
       </div>
     </nav>
 
@@ -34,9 +33,7 @@
       <section class="hero-section">
         <canvas id="hero-canvas"></canvas>
         <div class="container hero-content relative-z">
-          <div class="pill-badge gs-reveal">
-            <span class="pulse-dot"></span> Venda Sem Limites
-          </div>
+          <div class="pill-badge gs-reveal"></div>
           <h1 class="hero-title gs-reveal">
             Rapidez & Segurança <br />
             <span class="gradient-text">para vender sem limites.</span>
@@ -68,7 +65,7 @@
           </div>
         </div>
 
-        <div class="scroll-indicator">
+        <div class="scroll-indicator" style="display: none">
           <div class="mouse-wheel"></div>
         </div>
       </section>
@@ -143,7 +140,19 @@
       </section>
 
       <section class="dashboard-preview-section">
-        <div class="container">
+        <div
+          id="falling-numbers-bg"
+          style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 1;
+          "
+        ></div>
+        <div class="container relative-z">
           <div class="section-header center gs-reveal">
             <h2 class="glitch-text" data-text="NOSSO FLUXOBOARD">
               NOSSO FLUXOBOARD
@@ -180,7 +189,19 @@
       </section>
 
       <section class="flow-cards-section">
-        <div class="container">
+        <canvas
+          id="wave-canvas"
+          style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 1;
+          "
+        ></canvas>
+        <div class="container relative-z">
           <div class="section-header center gs-reveal">
             <h2>MAIS APROVAÇÃO DE PAGAMENTOS</h2>
           </div>
@@ -238,6 +259,21 @@
         </div>
       </section>
 
+      <div class="benefits-ticker">
+        <div class="ticker-content">
+          <span class="ticker-item">Sem limites de transações</span>
+          <span class="ticker-item">Aprovação 96% em cartão</span>
+          <span class="ticker-item">Saque instantâneo Pix</span>
+          <span class="ticker-item">D1 para cartão</span>
+          <span class="ticker-item">Proteção 3DS antifraude</span>
+          <span class="ticker-item">Suporte 24h</span>
+          <span class="ticker-item">Sem limites de transações</span>
+          <span class="ticker-item">Aprovação 96% em cartão</span>
+          <span class="ticker-item">Saque instantâneo Pix</span>
+          <span class="ticker-item">D1 para cartão</span>
+        </div>
+      </div>
+
       <section id="pricing" class="pricing-section">
         <div class="container">
           <div class="section-header center gs-reveal">
@@ -292,24 +328,24 @@
         </div>
       </section>
 
-      <section class="app-alert-section">
-        <div class="container">
-          <div class="alert-box blink-border gs-reveal">
-            <div class="alert-icon">📱</div>
-            <div class="alert-content">
-              <h3>
-                <span class="dot-blink">●</span> ATENÇÃO! APLICATIVO SAINDO DO
-                FORNO
-              </h3>
-              <p>
-                Acompanhe suas vendas pelo nosso aplicativo. Seu faturamento ao
-                alcance de suas mãos.
-              </p>
-              <div class="status-tag">APP EM FASE DE FINALIZAÇÃO!</div>
-            </div>
+      <section class="app-alert-section"></section>
+
+      <div class="app-alert-overlay" id="appAlertModal">
+        <div class="alert-box blink-border gs-reveal">
+          <div class="alert-icon">📱</div>
+          <div class="alert-content">
+            <h3>
+              <span class="blink-dot">●</span> ATENÇÃO! APLICATIVO SAINDO DO
+              FORNO
+            </h3>
+            <p>
+              Acompanhe suas vendas pelo nosso aplicativo. Seu faturamento ao
+              alcance de suas mãos.
+            </p>
+            <div class="status-tag">APP EM FASE DE FINALIZAÇÃO!</div>
           </div>
         </div>
-      </section>
+      </div>
 
       <section class="cta-section">
         <div class="liquid-bg"></div>
