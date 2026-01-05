@@ -59,10 +59,10 @@ if (!isMobile && cursorDot && cursorTrail) {
   if (cursorTrail) cursorTrail.style.display = 'none';
 }
 
-// 1. WAVE CANVAS - ANIMATED BACKGROUND (Flow Cards) - OCEANIC WAVES
+// 1. WAVE CANVAS - ANIMATED BACKGROUND (Flow Cards) - ONDAS LIMPAS E SUAVES
 const waveCanvas = document.getElementById('wave-canvas');
 if (waveCanvas) {
-  console.log('Wave canvas encontrado, iniciando animação de ondas do mar...');
+  console.log('Wave canvas encontrado, iniciando animação de ondas...');
   const waveCtx = waveCanvas.getContext('2d');
 
   // Garantir dimensões do canvas
@@ -76,43 +76,41 @@ if (waveCanvas) {
   let time = 0;
 
   function drawWaves() {
-    // Gradiente de fundo (horizonte para profundidade) - MAIS OPACO E DEFINIDO
+    // Gradiente de fundo sólido e opaco
     const gradient = waveCtx.createLinearGradient(0, 0, 0, waveHeight);
-    gradient.addColorStop(0, 'rgba(2, 2, 4, 0)');
-    gradient.addColorStop(0.4, 'rgba(0, 100, 140, 0.4)');
-    gradient.addColorStop(1, 'rgba(0, 50, 90, 0.6)');
+    gradient.addColorStop(0, 'rgba(10, 20, 35, 0.3)');
+    gradient.addColorStop(0.5, 'rgba(0, 80, 120, 0.5)');
+    gradient.addColorStop(1, 'rgba(0, 50, 80, 0.7)');
 
     waveCtx.fillStyle = gradient;
     waveCtx.fillRect(0, 0, waveWidth, waveHeight);
 
-    // Desenhar múltiplas camadas de ondas (como um mar real)
-    const waveCount = 5;
+    // Desenhar 3 camadas com mais movimento (velocidade e amplitude aumentadas)
+    const waveCount = 3;
 
     for (let wave = 0; wave < waveCount; wave++) {
-      // Cada onda tem velocidade diferente (profundidade)
-      const waveSpeed = 1 + wave * 0.3;
-      const waveAmplitude = 50 - wave * 8; // Ondas menores conforme mais profundas
-      const waveFreq = 40 - wave * 5;
-      const yOffset = waveHeight / 2 + wave * 20;
+      // Aumentar base de velocidade e variação por camada
+      const waveSpeed = 0.6 + wave * 0.25;
+      // Amplitude maior para movimento mais visível
+      const waveAmplitude = 90 - wave * 25;
+      // Frequência levemente menor para ondulações mais amplas
+      const waveFreq = 50 + wave * 15;
+      const yOffset = waveHeight * 0.55 + wave * 40;
 
-      // Opacidade varia por profundidade
-      const opacity = 0.4 - wave * 0.06;
+      // Opacidade gradual (mantendo contraste)
+      const opacity = 0.65 - wave * 0.15;
       waveCtx.strokeStyle = `rgba(0, 240, 255, ${opacity})`;
-      waveCtx.lineWidth = 2.5 - wave * 0.3;
+      waveCtx.lineWidth = 4 - wave * 0.6;
       waveCtx.lineCap = 'round';
       waveCtx.lineJoin = 'round';
 
       waveCtx.beginPath();
 
-      for (let x = 0; x < waveWidth; x += 1.5) {
-        // Múltiplos senos para ondas mais naturais
+      // Passo menor para linhas mais suaves
+      for (let x = 0; x < waveWidth; x += 2) {
+        // Onda simples por camada, porém com mais intensidade
         const y =
-          yOffset +
-          Math.sin((x + time * waveSpeed) / waveFreq) * waveAmplitude +
-          Math.sin((x - time * (waveSpeed * 0.7)) / (waveFreq * 1.3)) *
-            (waveAmplitude * 0.6) +
-          Math.cos((x + time * (waveSpeed * 0.5)) / (waveFreq * 1.8)) *
-            (waveAmplitude * 0.4);
+          yOffset + Math.sin((x + time * waveSpeed) / waveFreq) * waveAmplitude;
 
         if (x === 0) waveCtx.moveTo(x, y);
         else waveCtx.lineTo(x, y);
@@ -120,6 +118,7 @@ if (waveCanvas) {
       waveCtx.stroke();
     }
 
+    // Aumentar o incremento de tempo para movimento mais rápido
     time += 0.5;
     requestAnimationFrame(drawWaves);
   }
