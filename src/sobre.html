@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#020204" />
+    <title>Quem Somos | PagFlux</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- ESTILOS ESPECÍFICOS DA PÁGINA SOBRE --- */
+
+      /* HERO SECTION COM WEBGL */
+      .about-hero {
+        min-height: 90vh; /* Altura maior para impacto */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        padding-top: 100px; /* Espaço para não ficar atrás do menu */
+      }
+
+      /* Canvas para o efeito de Rede Neural */
+      #network-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.6; /* Sutil para não brigar com o texto */
+      }
+
+      /* Gradiente para suavizar o final do canvas */
+      .hero-fade-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        background: linear-gradient(to top, var(--bg-void), transparent);
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .about-content {
+        position: relative;
+        z-index: 2; /* Garante que o texto fique acima do canvas */
+        text-align: center;
+        max-width: 900px;
+        padding: 0 20px;
+      }
+
+      .hero-badge {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--primary);
+        border: 1px solid rgba(0, 240, 255, 0.3);
+        padding: 8px 20px;
+        border-radius: 50px;
+        margin-bottom: 30px;
+        display: inline-block;
+        background: rgba(0, 240, 255, 0.05);
+        backdrop-filter: blur(5px);
+        box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+      }
+
+      .about-hero h1 {
+        text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      /* STORY SECTION */
+      .story-section {
+        padding: 120px 0;
+        position: relative;
+      }
+
+      .story-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .story-content h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 30px;
+        line-height: 1.1;
+      }
+
+      .story-content p {
+        color: #b0b0b0;
+        font-size: 1.1rem;
+        margin-bottom: 24px;
+        line-height: 1.7;
+        font-weight: 300;
+      }
+
+      .story-highlight {
+        border-left: 3px solid var(--primary);
+        padding-left: 20px;
+        color: white !important;
+        font-style: italic;
+        margin: 30px 0;
+      }
+
+      .story-visual {
+        position: relative;
+        height: 500px;
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      }
+
+      .story-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.8;
+        transition: transform 0.7s ease;
+      }
+
+      .story-visual:hover .story-img {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+
+      /* VALUES SECTION */
+      .values-section {
+        padding: 100px 0;
+        background: linear-gradient(
+          180deg,
+          var(--bg-void),
+          #050505,
+          var(--bg-void)
+        );
+      }
+
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-top: 80px;
+      }
+
+      .value-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 50px 30px;
+        border-radius: 24px;
+        text-align: center;
+        transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .value-card:hover {
+        background: rgba(255, 255, 255, 0.06);
+        transform: translateY(-15px);
+        border-color: rgba(0, 240, 255, 0.3);
+        box-shadow: 0 20px 40px rgba(0, 240, 255, 0.05);
+      }
+
+      .value-icon {
+        font-size: 3rem;
+        margin-bottom: 25px;
+        display: inline-block;
+        filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.4));
+      }
+
+      .value-card h3 {
+        margin-bottom: 15px;
+        font-size: 1.4rem;
+        color: white;
+      }
+
+      .value-card p {
+        font-size: 1rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      /* STATS BANNER */
+      .stats-banner {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 80px 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        background: rgba(0, 0, 0, 0.2);
+        margin: 60px 0;
+      }
+
+      .stat-item {
+        text-align: center;
+        position: relative;
+      }
+
+      .stat-number {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 4rem;
+        font-weight: 700;
+        background: linear-gradient(180deg, #fff, #666);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: block;
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 600;
+      }
+
+      /* Responsividade */
+      @media (max-width: 900px) {
+        .story-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .story-visual {
+          height: 300px;
+          order: -1;
+        } /* Imagem primeiro no mobile */
+        .values-grid {
+          grid-template-columns: 1fr;
+        }
+        .stats-banner {
+          flex-direction: column;
+          gap: 60px;
+        }
+        .about-hero {
+          min-height: 70vh;
+        }
+        .story-content h2 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="noise-overlay"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-trail"></div>
+
+    <nav class="navbar gs-reveal">
+      <div class="navbar-content">
+        <a href="index.html" class="logo magnetic"
+          >Pagflux<span class="dot">.</span></a
+        >
+
+        <ul class="nav-links">
+          <li><a href="index.html#solutions" class="nav-link">Soluções</a></li>
+          <li><a href="index.html#pricing" class="nav-link">Tarifas</a></li>
+          <li>
+            <a href="sobre.html" class="nav-link" style="color: white">Sobre</a>
+          </li>
+          <li><a href="index.html#faq" class="nav-link">Ajuda</a></li>
+        </ul>
+
+        <button class="hamburger-menu" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <div class="mobile-menu-overlay">
+        <a href="index.html#solutions" class="mobile-link">Soluções</a>
+        <a href="index.html#pricing" class="mobile-link">Tarifas</a>
+        <a href="sobre.html" class="mobile-link">Sobre</a>
+        <a href="index.html#faq" class="mobile-link">Ajuda</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="about-hero">
+        <canvas id="network-canvas"></canvas>
+        <div class="hero-fade-bottom"></div>
+
+        <div class="container about-content">
+          <span class="hero-badge gs-reveal">Nossa Essência</span>
+          <h1 class="gs-reveal">
+            Não somos apenas um gateway.<br />
+            <span class="gradient-text">Somos o motor do seu crescimento.</span>
+          </h1>
+          <p
+            class="subtitle-hero gs-reveal"
+            style="margin-top: 20px; font-size: 1.2rem"
+          >
+            Nascemos com um propósito claro: eliminar a burocracia bancária e
+            devolver o controle financeiro para quem realmente gera valor.
+          </p>
+        </div>
+      </section>
+
+      <div class="stats-banner gs-reveal">
+        <div class="stat-item">
+          <span class="stat-number" data-target="10">0</span>
+          <span class="stat-label">Milhões Processados</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="99">0</span>
+          <span class="stat-label">% Uptime Garantido</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="24">0</span>
+          <span class="stat-label">Horas de Suporte/Dia</span>
+        </div>
+      </div>
+
+      <section class="story-section">
+        <div class="container">
+          <div class="story-grid">
+            <div class="story-content gs-reveal">
+              <h2>A Evolução dos Pagamentos Digitais</h2>
+              <p>
+                A PagFlux foi fundada por especialistas em tecnologia e finanças
+                que cansaram de ver empreendedores perderem vendas por causa de
+                sistemas lentos, taxas abusivas e análises de risco falhas.
+              </p>
+              <div class="story-highlight">
+                "Decidimos construir o que o mercado precisava: um ecossistema
+                robusto, transparente e, acima de tudo, rápido."
+              </div>
+              <p>
+                Nossa infraestrutura proprietária garante que cada transação
+                seja tratada com máxima prioridade. Hoje, empoderamos milhares
+                de negócios digitais, desde startups até grandes operações de
+                e-commerce, oferecendo a tecnologia que antes era restrita
+                apenas aos gigantes.
+              </p>
+            </div>
+            <div class="story-visual gs-reveal spotlight-card">
+              <img
+                src="imgs/8785688841847.jpg"
+                alt="Tecnologia PagFlux"
+                class="story-img"
+              />
+              <div class="video-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="values-section">
+        <div class="container">
+          <div class="section-header center gs-reveal">
+            <h2 class="section-title">Nossos Pilares</h2>
+            <p class="subtitle-hero">
+              O código de conduta que guia cada linha de código que escrevemos.
+            </p>
+          </div>
+
+          <div class="values-grid">
+            <div class="value-card gs-reveal">
+              <span class="value-icon">⚡</span>
+              <h3>Velocidade Obsessiva</h3>
+              <p>
+                Acreditamos que dinheiro parado é prejuízo. Nossos sistemas são
+                otimizados para liquidez imediata e processamento em
+                milissegundos.
+              </p>
+            </div>
+            <div class="value-card gs-reveal">
+              <span class="value-icon">🛡️</span>
+              <h3>Segurança Invisível</h3>
+              <p>
+                Proteção robusta que não atrapalha a conversão. Utilizamos IA
+                para barrar fraudes sem adicionar fricção ao seu cliente.
+              </p>
+            </div>
+            <div class="value-card gs-reveal">
+              <span class="value-icon">🤝</span>
+              <h3>Parceria Real</h3>
+              <p>
+                Seu sucesso é nosso combustível. Oferecemos suporte humanizado e
+                taxas justas para que seu negócio escale sem freios.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="liquid-bg"></div>
+        <div class="container relative-z center-text">
+          <h2 class="gs-reveal">PRONTO PARA FAZER PARTE DESSA REVOLUÇÃO?</h2>
+          <h3 class="gradient-text gs-reveal">JUNTE-SE À ELITE DO DIGITAL.</h3>
+          <div class="hero-actions justify-center mt-4 gs-reveal">
+            <a
+              href="https://app.pagfluxpagamentos.com/"
+              class="btn-primary large magnetic"
+              >Criar Conta Gratuitamente</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <h3>Pagflux<span class="dot">.</span></h3>
+          <p class="copyright">© 2026 Pagflux. Todos os direitos reservados.</p>
+        </div>
+        <div class="footer-col">
+          <a href="termos.html" class="footer-link">Termos de Uso</a>
+          <a href="privacidade.html" class="footer-link"
+            >Políticas de Privacidade</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+      // 1. WEBGL EFFECT - NEURAL NETWORK (Canvas)
+      const canvas = document.getElementById('network-canvas');
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let particles = [];
+
+      // Ajuste de densidade baseado na tela
+      const particleCount = window.innerWidth < 768 ? 40 : 80;
+      const connectionDistance = window.innerWidth < 768 ? 100 : 150;
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.5;
+          this.vy = (Math.random() - 0.5) * 0.5;
+          this.size = Math.random() * 2 + 1;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > width) this.vx *= -1;
+          if (this.y < 0 || this.y > height) this.vy *= -1;
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(0, 240, 255, 0.5)';
+          ctx.fill();
+        }
+      }
+
+      function initParticles() {
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+
+          // Desenhar conexões
+          for (let j = i; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < connectionDistance) {
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(0, 240, 255, ${1 - distance / connectionDistance})`;
+              ctx.lineWidth = 0.5;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animateParticles);
+      }
+
+      window.addEventListener('resize', () => {
+        resize();
+        initParticles();
+      });
+
+      resize();
+      initParticles();
+      animateParticles();
+
+      // 2. GSAP ANIMATIONS
+      document.addEventListener('DOMContentLoaded', () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animação do Hero
+        gsap.from('.hero-badge', {
+          y: 20,
+          opacity: 0,
+          duration: 0.8,
+          delay: 0.2,
+        });
+        gsap.from('.about-hero h1', {
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          delay: 0.4,
+        });
+        gsap.from('.subtitle-hero', {
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          delay: 0.6,
+        });
+
+        // Animação de Scroll Geral
+        gsap.utils.toArray('.gs-reveal').forEach((element) => {
+          gsap.from(element, {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: element,
+              start: 'top 85%',
+            },
+          });
+        });
+
+        // Contadores Numéricos
+        const stats = document.querySelectorAll('.stat-number');
+        stats.forEach((stat) => {
+          const target = +stat.getAttribute('data-target');
+          gsap.to(stat, {
+            innerText: target,
+            duration: 2,
+            snap: { innerText: 1 }, // Arredonda os números
+            ease: 'power1.out',
+            scrollTrigger: {
+              trigger: '.stats-banner',
+              start: 'top 80%',
+            },
+            onUpdate: function () {
+              // Adiciona símbolos (M, %, +) durante a contagem
+              if (target === 10)
+                stat.innerText =
+                  '+' + Math.ceil(this.targets()[0].innerText) + 'M';
+              if (target === 99)
+                stat.innerText = Math.ceil(this.targets()[0].innerText) + '.9%';
+              if (target === 24)
+                stat.innerText = Math.ceil(this.targets()[0].innerText) + '/7';
+            },
+          });
+        });
+
+        // Menu Mobile Lógica (Script Interno para garantir funcionamento)
+        const hamburger = document.querySelector('.hamburger-menu');
+        const mobileMenu = document.querySelector('.mobile-menu-overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        if (hamburger) {
+          hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains(
+              'active',
+            )
+              ? 'hidden'
+              : 'auto';
+          });
+
+          mobileLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+              hamburger.classList.remove('active');
+              mobileMenu.classList.remove('active');
+              document.body.style.overflow = 'auto';
+            });
+          });
+        }
+
+        // Efeito Magnético simples nos botões (Fallback)
+        const magnets = document.querySelectorAll('.magnetic');
+        magnets.forEach((btn) => {
+          btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = (e.clientX - rect.left - rect.width / 2) * 0.3;
+            const y = (e.clientY - rect.top - rect.height / 2) * 0.3;
+            gsap.to(btn, { x, y, duration: 0.3 });
+          });
+          btn.addEventListener('mouseleave', () => {
+            gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out' });
+          });
+        });
+      });
+
+      // Cursor Follow
+      const cursorDot = document.querySelector('.cursor-dot');
+      const cursorTrail = document.querySelector('.cursor-trail');
+      if (window.innerWidth > 768) {
+        window.addEventListener('mousemove', (e) => {
+          gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: 0 });
+          gsap.to(cursorTrail, {
+            x: e.clientX - 12,
+            y: e.clientY - 12,
+            duration: 0.2,
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

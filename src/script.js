@@ -306,7 +306,7 @@ featureItems.forEach((item, i) => {
         start: 'top 85%',
         toggleActions: 'play none none reverse',
       },
-    }
+    },
   );
 });
 
@@ -331,7 +331,7 @@ revealElements.forEach((el) => {
         start: 'top 90%',
         markers: false,
       },
-    }
+    },
   );
 });
 
@@ -363,7 +363,7 @@ cards.forEach((card) => {
         trigger: card,
         start: 'top 80%',
       },
-    }
+    },
   );
 });
 
@@ -466,7 +466,7 @@ statBigs.forEach((stat) => {
         trigger: stat,
         start: 'top 80%',
       },
-    }
+    },
   );
 });
 
@@ -498,3 +498,167 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }
   });
 });
+// --- TIMELINE SVG DRAWING & ANIMATION ---
+
+function initTimeline() {
+  const svg = document.querySelector('.timeline-svg');
+  const pathBg = document.querySelector('.timeline-path-bg');
+  const pathActive = document.querySelector('.timeline-path-active');
+  const items = document.querySelectorAll('.t-item');
+  const dots = document.querySelectorAll('.t-dot');
+
+  if (!svg || !items.length) return;
+
+  // Função para desenhar a linha baseada nas posições
+  function drawLine() {
+    const containerRect = document
+      .querySelector('.timeline-items')
+      .getBoundingClientRect();
+    const svgRect = svg.getBoundingClientRect();
+
+    // Iniciar o Path
+    let pathString = '';
+
+    // Pega a posição do primeiro dot
+    const firstDot = dots[0].getBoundingClientRect();
+    const startX = firstDot.left + firstDot.width / 2 - svgRect.left;
+    const startY = firstDot.top + firstDot.height / 2 - svgRect.top;
+
+    // Começa linha um pouco acima do primeiro ponto
+    pathString += `M ${startX} ${0} L ${startX} ${startY}`;
+
+    // Loop através dos pontos para criar as curvas
+    for (let i = 0; i < dots.length - 1; i++) {
+      const currentDot = dots[i].getBoundingClientRect();
+      const nextDot = dots[i + 1].getBoundingClientRect();
+
+      const x1 = currentDot.left + currentDot.width / 2 - svgRect.left;
+      const y1 = currentDot.top + currentDot.height / 2 - svgRect.top;
+
+      const x2 = nextDot.left + nextDot.width / 2 - svgRect.left;
+      const y2 = nextDot.top + nextDot.height / 2 - svgRect.top;
+
+      // Desenha curva Bezier cúbica entre os pontos
+      // Control points (cp) criam a suavidade da curva
+      const distY = y2 - y1;
+      const cp1x = x1;
+      const cp1y = y1 + distY * 0.5;
+      const cp2x = x2;
+      const cp2y = y2 - distY * 0.5;
+
+      pathString += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${x2} ${y2}`;
+    }
+
+    // Linha final descendo do último ponto
+    const lastDot = dots[dots.length - 1].getBoundingClientRect();
+    const lastX = lastDot.left + lastDot.width / 2 - svgRect.left;
+    const lastY = lastDot.top + lastDot.height / 2 - svgRect.top;
+
+    pathString += ` L ${lastX} ${svgRect.height}`;
+
+    // Aplica o path
+    pathBg.setAttribute('d', pathString);
+    pathActive.setAttribute('d', pathString);
+
+    // Configura o comprimento da linha para animação
+    const length = pathActive.getTotalLength();
+
+    // Define stroke-dash para animação de desenho
+    gsap.set(pathActive, {
+      strokeDasharray: length,
+      strokeDashoffset: length,
+    });
+
+    return length;
+  }
+
+  // Desenha inicial
+  // Timeout pequeno para garantir que layout carregou
+  setTimeout(() => {
+    const totalLength = drawLine();
+
+    // Animação ScrollTrigger
+    gsap.to(pathActive, {
+      strokeDashoffset: 0,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.timeline-wrapper-v2',
+        start: 'top 80%',
+        end: 'bottom 80%',
+        scrub: 1,
+        // markers: true // Descomente para debugar
+      },
+    });
+
+    // Animação de entrada dos cards
+    items.forEach((item, i) => {
+      const card = item.querySelector('.t-card');
+      const dot = item.querySelector('.t-dot');
+      const isLeft = item.classList.contains('left');
+
+      gsap.from(card, {
+        opacity: 0,
+        x: isLeft ? -50 : 50,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 85%',
+        },
+      });
+
+      gsap.from(dot, {
+        scale: 0,
+        opacity: 0,
+        duration: 0.5,
+        delay: 0.2,
+        ease: 'back.out(1.7)',
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 85%',
+        },
+      });
+    });
+  }, 100);
+
+  // Redesenhar no resize para manter responsividade
+  window.addEventListener('resize', () => {
+    drawLine();
+    // Recalcula ScrollTrigger
+    ScrollTrigger.refresh();
+  });
+}
+
+// Inicializa
+document.addEventListener('DOMContentLoaded', initTimeline);
+// Caso já tenha carregado (ex: hot reload)
+if (
+  document.readyState === 'complete' ||
+  document.readyState === 'interactive'
+) {
+  initTimeline();
+}
+// --- LÓGICA DO MENU MOBILE (HEADER) ---
+const hamburger = document.querySelector('.hamburger-menu');
+const mobileMenu = document.querySelector('.mobile-menu-overlay');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    // Bloqueia o scroll da página quando o menu está aberto
+    document.body.style.overflow = mobileMenu.classList.contains('active')
+      ? 'hidden'
+      : 'auto';
+  });
+
+  // Fechar menu ao clicar em um link
+  mobileLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+  });
+}

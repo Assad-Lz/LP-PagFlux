@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -17,6 +17,44 @@
     />
 
     <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .video-display-section {
+        position: relative;
+        overflow: hidden;
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .bg-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+      }
+
+      .video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+        backdrop-filter: blur(2px);
+      }
+
+      .video-content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
     <div class="noise-overlay"></div>
@@ -25,7 +63,46 @@
 
     <nav class="navbar gs-reveal">
       <div class="navbar-content">
-        <div class="logo magnetic">Pagflux<span class="dot">.</span></div>
+        <a href="#" class="logo magnetic">Pagflux<span class="dot">.</span></a>
+
+        <ul class="nav-links">
+          <li><a href="#solutions" class="nav-link">Soluções</a></li>
+          <li><a href="#pricing" class="nav-link">Tarifas</a></li>
+          <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+          <li><a href="#faq" class="nav-link">Ajuda</a></li>
+        </ul>
+
+        <button class="hamburger-menu" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <div class="mobile-menu-overlay">
+        <a href="#solutions" class="mobile-link">Soluções</a>
+        <a href="#pricing" class="mobile-link">Tarifas</a>
+        <a href="#about" class="mobile-link">Sobre</a>
+        <a href="#faq" class="mobile-link">Ajuda</a>
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            margin-top: 20px;
+          "
+        >
+          <a
+            href="https://app.pagfluxpagamentos.com/"
+            class="btn-text"
+            style="font-size: 1.2rem"
+            >Entrar</a
+          >
+          <a href="https://app.pagfluxpagamentos.com/" class="btn-header"
+            >Criar conta</a
+          >
+        </div>
       </div>
     </nav>
 
@@ -53,7 +130,9 @@
           </div>
 
           <div class="hero-actions gs-reveal mt-4">
-            <a href="#signup" class="btn-primary large magnetic"
+            <a
+              href="https://app.pagfluxpagamentos.com/"
+              class="btn-primary large magnetic"
               >Quero vender mais</a
             >
             <a
@@ -69,7 +148,7 @@
         </div>
       </section>
 
-      <section class="features-list-section">
+      <section id="solutions" class="features-list-section">
         <div class="container">
           <div class="section-header center gs-reveal">
             <h2 class="section-title text-gradient-silver">
@@ -81,59 +160,136 @@
             </p>
           </div>
 
-          <div class="timeline-wrapper">
-            <div class="timeline-line"></div>
-            <div class="scroll-features-list">
-              <div class="feature-item gs-feature-item magnetic-border">
-                <div class="f-icon">🚀</div>
-                <div class="f-content">
-                  <h3>96% de aprovação</h3>
-                  <p>Das compras no crédito processadas.</p>
+          <div class="timeline-wrapper-v2">
+            <svg class="timeline-svg" preserveAspectRatio="none">
+              <path class="timeline-path-bg" d="" />
+              <path class="timeline-path-active" d="" />
+            </svg>
+
+            <div class="timeline-items">
+              <div class="t-item left">
+                <div class="t-dot"></div>
+                <div class="t-card magnetic-border spotlight-card">
+                  <div class="t-icon">🚀</div>
+                  <div class="t-content">
+                    <h3>96% de Aprovação</h3>
+                    <p>
+                      Algoritmo inteligente que recupera vendas perdidas e
+                      maximiza sua conversão no crédito.
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div class="feature-item gs-feature-item magnetic-border">
-                <div class="f-icon">⚡</div>
-                <div class="f-content">
-                  <h3>Saque Pix Instantâneo</h3>
-                  <p>Liquidez imediata para seu fluxo de caixa.</p>
+
+              <div class="t-item right">
+                <div class="t-dot"></div>
+                <div class="t-card magnetic-border spotlight-card">
+                  <div class="t-icon">⚡</div>
+                  <div class="t-content">
+                    <h3>Saque Pix Instantâneo</h3>
+                    <p>
+                      Fluxo de caixa real. O dinheiro entra, você saca. Sem
+                      travas, sem burocracia.
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div class="feature-item gs-feature-item magnetic-border">
-                <div class="f-icon">🏦</div>
-                <div class="f-content">
-                  <h3>D1 para cartão</h3>
-                  <p>Análise compliance acelerada.</p>
+
+              <div class="t-item left">
+                <div class="t-dot"></div>
+                <div class="t-card magnetic-border spotlight-card">
+                  <div class="t-icon">🏦</div>
+                  <div class="t-content">
+                    <h3>D1 para Cartão</h3>
+                    <p>
+                      Antecipação agressiva. Receba suas vendas de cartão de
+                      crédito no dia seguinte.
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div class="feature-item gs-feature-item magnetic-border">
-                <div class="f-icon">🔒</div>
-                <div class="f-content">
-                  <h3>Proteção Total</h3>
-                  <p>Segurança de dados e movimentações.</p>
+
+              <div class="t-item right">
+                <div class="t-dot"></div>
+                <div class="t-card magnetic-border spotlight-card">
+                  <div class="t-icon">🔒</div>
+                  <div class="t-content">
+                    <h3>Proteção Blindada</h3>
+                    <p>
+                      Criptografia de ponta a ponta garantindo a segurança total
+                      dos dados e das transações.
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div class="feature-item gs-feature-item magnetic-border">
-                <div class="f-icon">🛡️</div>
-                <div class="f-content">
-                  <h3>3DS Antifraude</h3>
-                  <p>Camadas extras de segurança inteligente.</p>
+
+              <div class="t-item left">
+                <div class="t-dot"></div>
+                <div class="t-card magnetic-border spotlight-card">
+                  <div class="t-icon">🛡️</div>
+                  <div class="t-content">
+                    <h3>3DS Antifraude</h3>
+                    <p>
+                      Camadas extras de segurança inteligente que barram fraudes
+                      sem barrar vendas legítimas.
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div class="feature-item gs-feature-item magnetic-border">
-                <div class="f-icon">📊</div>
-                <div class="f-content">
-                  <h3>Transparência</h3>
-                  <p>Fluxoboard financeiro intuitivo.</p>
+
+              <div class="t-item right">
+                <div class="t-dot"></div>
+                <div class="t-card magnetic-border spotlight-card">
+                  <div class="t-icon">📊</div>
+                  <div class="t-content">
+                    <h3>Gestão Transparente</h3>
+                    <p>
+                      Fluxoboard financeiro intuitivo para você ter controle
+                      total do seu império digital.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="hero-actions justify-center mt-5 gs-reveal">
-            <a href="#signup" class="btn-primary magnetic">Quero vender mais</a>
+            <a
+              href="https://app.pagfluxpagamentos.com/"
+              class="btn-primary magnetic"
+              >Quero vender mais</a
+            >
             <a href="https://wa.me/seunumero" class="btn-secondary magnetic"
               >Falar com especialista</a
             >
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="video-display-section">
+        <video class="bg-video" autoplay muted loop playsinline>
+          <source
+            src="imgs/Criação_de_Vídeo_Futurista_de_Globo_Terrestre.mp4"
+            type="video/mp4"
+          />
+        </video>
+
+        <div class="video-overlay"></div>
+
+        <div class="container video-content">
+          <div class="section-header center gs-reveal">
+            <h2
+              class="section-title text-gradient-silver"
+              style="text-shadow: 0 0 20px rgba(0, 0, 0, 0.8)"
+            >
+              TECNOLOGIA GLOBAL
+            </h2>
+            <p
+              class="subtitle-hero"
+              style="color: #fff; text-shadow: 0 0 10px rgba(0, 0, 0, 0.8)"
+            >
+              Conectado ao futuro dos pagamentos digitais.
+            </p>
           </div>
         </div>
       </section>
@@ -309,6 +465,41 @@
         </div>
       </section>
 
+      <section class="checkout-invite-section">
+        <div class="container">
+          <div class="invite-card gs-reveal spotlight-card">
+            <div class="invite-visual">
+              <div class="floating-access-card">
+                <div class="access-chip"></div>
+                <div class="access-text">
+                  <span>PAGFLUX</span>
+                  <small>MEMBER ACCESS</small>
+                </div>
+                <div class="access-number">•••• •••• •••• 2026</div>
+              </div>
+            </div>
+            <div class="invite-content">
+              <h2 class="gradient-text">CONTA GRATUITA & IMEDIATA</h2>
+              <h3>O acesso ao futuro dos seus pagamentos está a um clique.</h3>
+              <p>
+                Sem burocracia de bancos tradicionais. Cadastre-se no nosso
+                checkout transparente e libere seu painel agora mesmo.
+              </p>
+              <ul class="invite-list">
+                <li>✅ Aprovação Instantânea</li>
+                <li>✅ Sem mensalidade</li>
+                <li>✅ Setup em 2 minutos</li>
+              </ul>
+              <a
+                href="https://app.pagfluxpagamentos.com/"
+                class="btn-primary large magnetic"
+                >ACESSAR CHECKOUT AGORA</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="support-section">
         <div class="container">
           <div class="support-box gs-reveal">
@@ -356,7 +547,9 @@
             EXPERIMENTE A EVOLUÇÃO COM O PAGFLUX!
           </h3>
           <div class="hero-actions justify-center mt-4 gs-reveal">
-            <a href="#signup" class="btn-primary large magnetic"
+            <a
+              href="https://app.pagfluxpagamentos.com/"
+              class="btn-primary large magnetic"
               >Quero vender mais</a
             >
             <a
@@ -440,8 +633,10 @@
             </p>
           </div>
           <div class="footer-col">
-            <a href="#" class="footer-link">Termos de Uso</a>
-            <a href="#" class="footer-link">Políticas de Privacidade</a>
+            <a href="termos.html" class="footer-link">Termos de Uso</a>
+            <a href="privacidade.html" class="footer-link"
+              >Políticas de Privacidade</a
+            >
           </div>
         </div>
       </footer>

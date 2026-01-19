@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#020204" />
+    <title>Termos de Uso | PagFlux</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg-void: #020204;
+        --primary: #00f0ff;
+        --text-main: #e0e0e0;
+        --text-muted: #8a8f98;
+        --border-glass: rgba(255, 255, 255, 0.08);
+        --bg-glass: rgba(10, 10, 12, 0.6);
+      }
+
+      body {
+        background-color: var(--bg-void);
+        color: var(--text-main);
+        font-family: 'Inter', sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* --- HEADER (CÓPIA PADRÃO) --- */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        z-index: 1000;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-bottom: 1px solid var(--border-glass);
+        background: rgba(2, 2, 4, 0.85);
+        transition: all 0.3s ease;
+      }
+
+      .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .logo {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+      }
+      .logo .dot {
+        color: var(--primary);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-link {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+      .nav-link:hover {
+        color: white;
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .btn-text {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .btn-header-primary {
+        background: var(--primary);
+        color: #000;
+        padding: 10px 24px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.9rem;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .btn-header-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+      }
+
+      /* Hamburger Menu */
+      .hamburger-menu {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 1002;
+      }
+      .hamburger-menu span {
+        width: 25px;
+        height: 2px;
+        background: white;
+        transition: 0.3s;
+      }
+
+      /* Mobile Overlay */
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--bg-void);
+        z-index: 1001;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        transform: translateY(-100%);
+        transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        opacity: 0;
+      }
+      .mobile-menu-overlay.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .mobile-link {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 2rem;
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      @media (max-width: 900px) {
+        .nav-links,
+        .nav-actions {
+          display: none;
+        }
+        .hamburger-menu {
+          display: flex;
+        }
+      }
+      .hamburger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+      }
+      .hamburger-menu.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+      }
+
+      /* --- ESTILOS ESPECÍFICOS DA PÁGINA --- */
+      .terms-hero {
+        padding: 160px 0 60px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .terms-hero::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(0, 240, 255, 0.15),
+          transparent 70%
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .terms-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 700;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 1;
+        color: white;
+      }
+
+      .last-updated-badge {
+        display: inline-block;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.85rem;
+        color: var(--primary);
+        background: rgba(0, 240, 255, 0.05);
+        border: 1px solid rgba(0, 240, 255, 0.2);
+        padding: 8px 16px;
+        border-radius: 50px;
+        margin-top: 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Grid Layout */
+      .legal-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px 100px;
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 60px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .legal-nav {
+        position: sticky;
+        top: 120px;
+        height: fit-content;
+        padding-right: 20px;
+        border-right: 1px solid var(--border-glass);
+      }
+
+      .legal-nav-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: white;
+        font-size: 1.1rem;
+      }
+
+      .toc-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .toc-link {
+        display: block;
+        padding: 10px 0;
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: 0.3s ease;
+        border-left: 2px solid transparent;
+        padding-left: 15px;
+        margin-left: -2px;
+      }
+
+      .toc-link:hover {
+        color: white;
+      }
+
+      .toc-link.active {
+        color: var(--primary);
+        border-left-color: var(--primary);
+        font-weight: 500;
+        background: linear-gradient(
+          90deg,
+          rgba(0, 240, 255, 0.05),
+          transparent
+        );
+      }
+
+      /* Content Box */
+      .legal-content {
+        background: var(--bg-glass);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--border-glass);
+        border-radius: 16px;
+        padding: 60px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .terms-section {
+        margin-bottom: 60px;
+        scroll-margin-top: 140px;
+      }
+
+      .terms-section h2 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.8rem;
+        color: white;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .terms-section h2::before {
+        content: '§';
+        color: var(--primary);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1.2rem;
+        opacity: 0.7;
+      }
+
+      .terms-section p,
+      .terms-section li {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: #cccccc;
+        margin-bottom: 20px;
+      }
+
+      .terms-section ul {
+        padding-left: 20px;
+        margin-bottom: 20px;
+      }
+
+      .data-highlight {
+        font-family: 'JetBrains Mono', monospace;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        color: #fff;
+      }
+
+      @media (max-width: 900px) {
+        .legal-container {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .legal-nav {
+          display: none;
+        }
+        .legal-content {
+          padding: 30px;
+        }
+        .terms-title {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-trail"></div>
+    <div class="noise-overlay"></div>
+
+    <nav class="navbar gs-reveal">
+      <div class="navbar-container">
+        <a href="index.html" class="logo magnetic">
+          Pagflux<span class="dot">.</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html#solutions" class="nav-link">Soluções</a></li>
+          <li><a href="index.html#pricing" class="nav-link">Tarifas</a></li>
+          <li><a href="index.html#about" class="nav-link">Quem somos</a></li>
+          <li><a href="index.html#faq" class="nav-link">Ajuda</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="index.html#login" class="btn-text">Entrar</a>
+          <a href="index.html#signup" class="btn-header-primary">Criar conta</a>
+        </div>
+
+        <button class="hamburger-menu" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <div class="mobile-menu-overlay">
+        <a href="index.html#solutions" class="mobile-link">Soluções</a>
+        <a href="index.html#pricing" class="mobile-link">Tarifas</a>
+        <a href="index.html#about" class="mobile-link">Quem somos</a>
+        <a href="index.html#faq" class="mobile-link">Ajuda</a>
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            margin-top: 20px;
+          "
+        >
+          <a href="index.html#login" class="btn-text" style="font-size: 1.2rem"
+            >Entrar</a
+          >
+          <a href="index.html#signup" class="btn-header-primary">Criar conta</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="terms-hero gs-reveal">
+        <div
+          class="container"
+          style="max-width: 1200px; margin: 0 auto; padding: 0 24px"
+        >
+          <h1 class="terms-title">Termos de Uso</h1>
+          <p
+            class="subtitle-hero"
+            style="max-width: 600px; margin: 0 auto; color: var(--text-muted)"
+          >
+            Regras claras, jogo limpo. Conheça as diretrizes que regem o uso do
+            ecossistema PagFlux.
+          </p>
+          <div class="last-updated-badge">Última atualização: 19/01/2026</div>
+        </div>
+      </section>
+
+      <div class="legal-container">
+        <aside class="legal-nav gs-reveal">
+          <div class="legal-nav-title">Navegação</div>
+          <ul class="toc-list">
+            <li>
+              <a href="#aceitacao" class="toc-link active">1. Aceitação</a>
+            </li>
+            <li><a href="#servicos" class="toc-link">2. Serviços</a></li>
+            <li>
+              <a href="#elegibilidade" class="toc-link">3. Elegibilidade</a>
+            </li>
+            <li><a href="#pagamentos" class="toc-link">4. Pagamentos</a></li>
+            <li>
+              <a href="#responsabilidades" class="toc-link"
+                >5. Responsabilidades</a
+              >
+            </li>
+            <li><a href="#contato" class="toc-link">6. Contato</a></li>
+          </ul>
+        </aside>
+
+        <article class="legal-content gs-reveal">
+          <div id="aceitacao" class="terms-section">
+            <h2>1. Aceitação dos Termos</h2>
+            <p>
+              Ao criar uma conta ou utilizar qualquer serviço da
+              <strong>PagFlux</strong>, você concorda expressamente com estes
+              Termos de Uso. Estes termos constituem um contrato vinculativo
+              entre você (Usuário) e a PagFlux. Se você não concordar, não
+              deverá acessar a plataforma.
+            </p>
+          </div>
+
+          <div id="servicos" class="terms-section">
+            <h2>2. Descrição dos Serviços</h2>
+            <p>
+              A PagFlux atua como um Gateway de Pagamentos e Intermediadora
+              Financeira, oferecendo:
+            </p>
+            <ul>
+              <li>
+                Processamento de transações via Pix (QR Code dinâmico) e Cartão
+                de Crédito.
+              </li>
+              <li>
+                Dashboard para gestão financeira e visualização de métricas em
+                tempo real.
+              </li>
+              <li>APIs para integração com e-commerces e sistemas externos.</li>
+              <li>
+                Ferramentas de checkout transparente e links de pagamento.
+              </li>
+            </ul>
+          </div>
+
+          <div id="elegibilidade" class="terms-section">
+            <h2>3. Elegibilidade e Cadastro</h2>
+            <p>
+              Para utilizar nossos serviços, você deve ser uma pessoa física
+              maior de 18 anos ou uma pessoa jurídica devidamente constituída. É
+              obrigatório fornecer informações verdadeiras, como
+              <span class="data-highlight">CNPJ/CPF</span> e dados bancários
+              válidos. A PagFlux se reserva o direito de recusar cadastros que
+              não atendam às políticas de Compliance.
+            </p>
+          </div>
+
+          <div id="pagamentos" class="terms-section">
+            <h2>4. Taxas e Repasses</h2>
+            <p>
+              O uso da plataforma está sujeito à cobrança de taxas por transação
+              (MDR) e tarifas de saque, conforme tabela vigente no momento da
+              contratação ou plano selecionado.
+            </p>
+            <p>
+              Os repasses ocorrem automaticamente para a conta bancária
+              cadastrada, respeitando os prazos de liquidação:
+              <span class="data-highlight">D+0</span> para Pix e
+              <span class="data-highlight">D+1</span> ou
+              <span class="data-highlight">D+30</span> para Cartão de Crédito,
+              dependendo do plano de antecipação contratado.
+            </p>
+          </div>
+
+          <div id="responsabilidades" class="terms-section">
+            <h2>5. Responsabilidades e Proibições</h2>
+            <p>
+              É estritamente proibido utilizar a PagFlux para transacionar
+              produtos ilegais, dropshipping fraudulento, esquemas de pirâmide
+              ou qualquer atividade que viole as leis brasileiras.
+            </p>
+            <p>
+              O Usuário é inteiramente responsável por chargebacks (contestação
+              de compra) decorrentes de desacordo comercial ou fraude por parte
+              de seus clientes finais.
+            </p>
+          </div>
+
+          <div id="contato" class="terms-section">
+            <h2>6. Contato e Suporte</h2>
+            <p>
+              Para suporte técnico, dúvidas sobre cobranças ou questões
+              jurídicas, utilize nossos canais oficiais. Não realizamos
+              atendimento via redes sociais para assuntos financeiros sensíveis.
+            </p>
+            <p style="margin-top: 20px">
+              <span class="data-highlight">Jurídico: legal@pagflux.com</span
+              ><br />
+              <span class="data-highlight">Suporte: suporte@pagflux.com</span>
+            </p>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div
+        class="container footer-grid"
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 40px 24px;
+          border-top: 1px solid var(--border-glass);
+        "
+      >
+        <div class="footer-brand">
+          <h3 style="color: white; font-family: 'Space Grotesk', sans-serif">
+            Pagflux<span class="dot" style="color: var(--primary)">.</span>
+          </h3>
+          <p
+            class="copyright"
+            style="color: var(--text-muted); font-size: 0.8rem; margin-top: 5px"
+          >
+            © 2026 Pagflux. Todos os direitos reservados.
+          </p>
+        </div>
+        <div class="footer-col" style="display: flex; gap: 20px">
+          <a
+            href="termos.html"
+            class="footer-link"
+            style="
+              color: var(--text-muted);
+              text-decoration: none;
+              transition: 0.3s;
+            "
+            >Termos de Uso</a
+          >
+          <a
+            href="privacidade.html"
+            class="footer-link"
+            style="
+              color: var(--text-muted);
+              text-decoration: none;
+              transition: 0.3s;
+            "
+            >Políticas de Privacidade</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+      // 1. Registro GSAP
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 2. Animação de Entrada
+      const tl = gsap.timeline();
+
+      tl.from('.navbar', {
+        y: -100,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+      })
+        .from(
+          '.terms-hero > *',
+          {
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: 'power3.out',
+          },
+          '-=0.5',
+        )
+        .from(
+          '.legal-container',
+          {
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+          },
+          '-=0.5',
+        );
+
+      // 3. Hamburger Menu
+      const hamburger = document.querySelector('.hamburger-menu');
+      const mobileMenu = document.querySelector('.mobile-menu-overlay');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      if (hamburger) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          mobileMenu.classList.toggle('active');
+          document.body.style.overflow = mobileMenu.classList.contains('active')
+            ? 'hidden'
+            : 'auto';
+        });
+
+        mobileLinks.forEach((link) => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+          });
+        });
+      }
+
+      // 4. Scroll Spy (Menu Lateral)
+      const sections = document.querySelectorAll('.terms-section');
+      const navLinks = document.querySelectorAll('.toc-link');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          if (pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute('id');
+          }
+        });
+        navLinks.forEach((link) => {
+          link.classList.remove('active');
+          if (link.getAttribute('href').includes(current)) {
+            link.classList.add('active');
+          }
+        });
+      });
+
+      // 5. Smooth Scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document
+            .querySelector(this.getAttribute('href'))
+            .scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // 6. Cursor
+      const cursorDot = document.querySelector('.cursor-dot');
+      const cursorTrail = document.querySelector('.cursor-trail');
+      if (window.innerWidth > 768) {
+        window.addEventListener('mousemove', (e) => {
+          gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: 0 });
+          gsap.to(cursorTrail, {
+            x: e.clientX - 12,
+            y: e.clientY - 12,
+            duration: 0.2,
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
